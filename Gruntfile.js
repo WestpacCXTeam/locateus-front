@@ -19,7 +19,7 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 // External dependencies
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-var Chalk = require('chalk');
+// var Chalk = require('chalk');
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -34,23 +34,28 @@ var Chalk = require('chalk');
 var SETTINGS = function() {
 	return {
 		'folder': {
-			'html': 'HTML',
-			'modules': 'HTML/_includes/modules',
-			'assets': 'HTML/_assets',
-			'js': 'HTML/_assets/js',
-			'less': 'HTML/_assets/less',
-			'svg': 'HTML/_assets/svg',
-			'css': 'HTML/_assets/css',
-			'font': 'HTML/_assets/font',
-			'img': 'HTML/_assets/img',
-			'htaccess': 'HTML/_assets/htaccess',
-			'favicons': 'HTML/_assets/favicons',
+			'dev': 'dev',
+			'html': 'dev/HTML',
+			'includes': 'dev/HTML/_includes',
+			'js': 'dev/js',
+			'less': 'dev/less',
+			'svg': 'dev/svg',
+			'css': 'dev/css',
+			'font': 'dev/fonts',
+			'img': 'dev/img',
+			'favicons': 'dev/favicons',
 			'temp': '.temp',
 			'root': '',
 
-			'prod': 'jekyll',
+			'prod': 'PROD',
 			'Packagejson': 'package.json',
 		},
+		'brands': [
+			'BOM',
+			'BSA',
+			'STG',
+			'WBC'
+		],
 	};
 };
 
@@ -64,6 +69,7 @@ module.exports = function(grunt) {
 	// Dependencies
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	grunt.loadNpmTasks('grunt-contrib-connect');
+	grunt.loadNpmTasks('grunt-include-replace');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -71,10 +77,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-text-replace');
 	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-lintspaces');
 	grunt.loadNpmTasks('grunt-grunticon');
 	grunt.loadNpmTasks('grunt-wakeup');
-	grunt.loadNpmTasks('grunt-jekyll');
 	grunt.loadNpmTasks('grunt-font');
 	require('time-grunt')(grunt);
 
@@ -86,7 +90,7 @@ module.exports = function(grunt) {
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// Package content
+		// Settings
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		SETTINGS: SETTINGS(),
 		pkg: grunt.file.readJSON( SETTINGS().folder.Packagejson ),
@@ -96,18 +100,26 @@ module.exports = function(grunt) {
 		// Clean task
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		clean: {
-			jekyll: [
+			prod: [
 				'<%= SETTINGS.folder.prod %>/',
 			],
 
 			grunticon: [
-				'<%= SETTINGS.folder.prod %>/assets/css/grunticon.loader.js',
-				'<%= SETTINGS.folder.prod %>/assets/css/preview.html',
-				'<%= SETTINGS.folder.prod %>/assets/css/png/',
-			],
+				'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[0] %>/assets/css/grunticon.loader.js',
+				'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[0] %>/assets/css/preview.html',
+				'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[0] %>/assets/css/png/',
 
-			GUI: [
-				'<%= SETTINGS.folder.GUImaster %>/',
+				'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[1] %>/assets/css/grunticon.loader.js',
+				'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[1] %>/assets/css/preview.html',
+				'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[1] %>/assets/css/png/',
+
+				'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[2] %>/assets/css/grunticon.loader.js',
+				'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[2] %>/assets/css/preview.html',
+				'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[2] %>/assets/css/png/',
+
+				'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[3] %>/assets/css/grunticon.loader.js',
+				'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[3] %>/assets/css/preview.html',
+				'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[3] %>/assets/css/png/',
 			],
 
 			temp: [
@@ -120,18 +132,23 @@ module.exports = function(grunt) {
 		// Replace version
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		replace: {
-			debugDev: {
+			//////////////////////////// DEBUG ON
+			devBOM: {
 				src: [
-					'<%= SETTINGS.folder.prod %>/**/*.html',
-					'<%= SETTINGS.folder.prod %>/**/*.md',
-					'<%= SETTINGS.folder.prod %>/**/*.js',
-					'<%= SETTINGS.folder.prod %>/**/*.css',
-					'<%= SETTINGS.folder.prod %>/**/*.liquid',
-					'<%= SETTINGS.folder.fileserver %>/server.js',
-					'!<%= SETTINGS.folder.prod %>/_site/**/*',
+					'<%= SETTINGS.folder.temp %>/BOM/**/*.html',
+					'<%= SETTINGS.folder.temp %>/BOM/**/*.less',
+					'<%= SETTINGS.folder.temp %>/BOM/**/*.js',
 				],
 				overwrite: true,
 				replacements: [
+					{
+						from: '[Brand]',
+						to: 'BOM',
+					},
+					{
+						from: '[Version]',
+						to: '<%= pkg.version %>',
+					},
 					{
 						from: '[Debug]',
 						to: 'true',
@@ -143,18 +160,105 @@ module.exports = function(grunt) {
 				],
 			},
 
-			debugProd: {
+			devBSA: {
 				src: [
-					'<%= SETTINGS.folder.prod %>/**/*.html',
-					'<%= SETTINGS.folder.prod %>/**/*.md',
-					'<%= SETTINGS.folder.prod %>/**/*.js',
-					'<%= SETTINGS.folder.prod %>/**/*.css',
-					'<%= SETTINGS.folder.prod %>/**/*.liquid',
-					'<%= SETTINGS.folder.fileserver %>/server.js',
-					'!<%= SETTINGS.folder.prod %>/_site/**/*',
+					'<%= SETTINGS.folder.temp %>/BSA/**/*.html',
+					'<%= SETTINGS.folder.temp %>/BSA/**/*.less',
+					'<%= SETTINGS.folder.temp %>/BSA/**/*.js',
 				],
 				overwrite: true,
 				replacements: [
+					{
+						from: '[Brand]',
+						to: 'BSA',
+					},
+					{
+						from: '[Version]',
+						to: '<%= pkg.version %>',
+					},
+					{
+						from: '[Debug]',
+						to: 'true',
+					},
+					{
+						from: '[-Debug-]',
+						to: '[Debug]',
+					},
+				],
+			},
+
+			devSTG: {
+				src: [
+					'<%= SETTINGS.folder.temp %>/STG/**/*.html',
+					'<%= SETTINGS.folder.temp %>/STG/**/*.less',
+					'<%= SETTINGS.folder.temp %>/STG/**/*.js',
+				],
+				overwrite: true,
+				replacements: [
+					{
+						from: '[Brand]',
+						to: 'STG',
+					},
+					{
+						from: '[Version]',
+						to: '<%= pkg.version %>',
+					},
+					{
+						from: '[Debug]',
+						to: 'true',
+					},
+					{
+						from: '[-Debug-]',
+						to: '[Debug]',
+					},
+				],
+			},
+
+			devWBC: {
+				src: [
+					'<%= SETTINGS.folder.temp %>/WBC/**/*.html',
+					'<%= SETTINGS.folder.temp %>/WBC/**/*.less',
+					'<%= SETTINGS.folder.temp %>/WBC/**/*.js',
+				],
+				overwrite: true,
+				replacements: [
+					{
+						from: '[Brand]',
+						to: 'WBC',
+					},
+					{
+						from: '[Version]',
+						to: '<%= pkg.version %>',
+					},
+					{
+						from: '[Debug]',
+						to: 'true',
+					},
+					{
+						from: '[-Debug-]',
+						to: '[Debug]',
+					},
+				],
+			},
+
+
+			//////////////////////////// DEBUG OFF
+			prodBOM: {
+				src: [
+					'<%= SETTINGS.folder.temp %>/BOM/**/*.html',
+					'<%= SETTINGS.folder.temp %>/BOM/**/*.less',
+					'<%= SETTINGS.folder.temp %>/BOM/**/*.js',
+				],
+				overwrite: true,
+				replacements: [
+					{
+						from: '[Brand]',
+						to: 'BOM',
+					},
+					{
+						from: '[Version]',
+						to: '<%= pkg.version %>',
+					},
 					{
 						from: '[Debug]',
 						to: 'false',
@@ -166,17 +270,83 @@ module.exports = function(grunt) {
 				],
 			},
 
-			jekyll: {
+			prodBSA: {
 				src: [
-					'<%= SETTINGS.folder.prod %>/_includes/**/*.liquid',
-					'<%= SETTINGS.folder.prod %>/_layouts/**/*',
-					'<%= SETTINGS.folder.prod %>/_data/**/*',
+					'<%= SETTINGS.folder.temp %>/BSA/**/*.html',
+					'<%= SETTINGS.folder.temp %>/BSA/**/*.less',
+					'<%= SETTINGS.folder.temp %>/BSA/**/*.js',
 				],
 				overwrite: true,
 				replacements: [
 					{
+						from: '[Brand]',
+						to: 'BSA',
+					},
+					{
 						from: '[Version]',
 						to: '<%= pkg.version %>',
+					},
+					{
+						from: '[Debug]',
+						to: 'false',
+					},
+					{
+						from: '[-Debug-]',
+						to: '[Debug]',
+					},
+				],
+			},
+
+			prodSTG: {
+				src: [
+					'<%= SETTINGS.folder.temp %>/STG/**/*.html',
+					'<%= SETTINGS.folder.temp %>/STG/**/*.less',
+					'<%= SETTINGS.folder.temp %>/STG/**/*.js',
+				],
+				overwrite: true,
+				replacements: [
+					{
+						from: '[Brand]',
+						to: 'STG',
+					},
+					{
+						from: '[Version]',
+						to: '<%= pkg.version %>',
+					},
+					{
+						from: '[Debug]',
+						to: 'false',
+					},
+					{
+						from: '[-Debug-]',
+						to: '[Debug]',
+					},
+				],
+			},
+
+			prodWBC: {
+				src: [
+					'<%= SETTINGS.folder.temp %>/WBC/**/*.html',
+					'<%= SETTINGS.folder.temp %>/WBC/**/*.less',
+					'<%= SETTINGS.folder.temp %>/WBC/**/*.js',
+				],
+				overwrite: true,
+				replacements: [
+					{
+						from: '[Brand]',
+						to: 'WBC',
+					},
+					{
+						from: '[Version]',
+						to: '<%= pkg.version %>',
+					},
+					{
+						from: '[Debug]',
+						to: 'false',
+					},
+					{
+						from: '[-Debug-]',
+						to: '[Debug]',
 					},
 				],
 			},
@@ -196,7 +366,14 @@ module.exports = function(grunt) {
 					plugins : [ new (require('less-plugin-autoprefix'))({ browsers: [ 'last 2 versions', 'ie 8', 'ie 9', 'ie 10' ] }) ],
 				},
 				files: {
-					'<%= SETTINGS.folder.prod %>/assets/css/site-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme.less',
+					'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[0] %>/assets/css/site-<%= pkg.version %>.min.css':
+						'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[0] %>/less/theme.less',
+					'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[1] %>/assets/css/site-<%= pkg.version %>.min.css':
+						'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[0] %>/less/theme.less',
+					'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[2] %>/assets/css/site-<%= pkg.version %>.min.css':
+						'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[0] %>/less/theme.less',
+					'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[3] %>/assets/css/site-<%= pkg.version %>.min.css':
+						'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[0] %>/less/theme.less',
 				},
 			},
 		},
@@ -206,29 +383,106 @@ module.exports = function(grunt) {
 		// Concat files
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		concat: {
-			grunticon: {
+			grunticonBOM: {
 				files: {
-					'<%= SETTINGS.folder.prod %>/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
-						'<%= SETTINGS.folder.prod %>/assets/css/symbols-<%= pkg.version %>.data.svg.css',
-						'<%= SETTINGS.folder.css %>/symbols.data.svg.css',
+					'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
+						'<%= SETTINGS.folder.temp %>/BOM/grunticon/svg.css',
+						'<%= SETTINGS.folder.css %>/BOM/symbols.data.svg.css',
 					],
-					'<%= SETTINGS.folder.prod %>/assets/css/symbols-<%= pkg.version %>.data.png.css': [
-						'<%= SETTINGS.folder.prod %>/assets/css/symbols-<%= pkg.version %>.data.png.css',
-						'<%= SETTINGS.folder.css %>/symbols.data.png.css',
+					'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.data.png.css': [
+						'<%= SETTINGS.folder.temp %>/BOM/grunticon/png.css',
+						'<%= SETTINGS.folder.css %>/BOM/symbols.data.png.css',
 					],
-					'<%= SETTINGS.folder.prod %>/assets/css/symbols-<%= pkg.version %>.fallback.css': [
-						'<%= SETTINGS.folder.prod %>/assets/css/symbols-<%= pkg.version %>.fallback.css',
-						'<%= SETTINGS.folder.css %>/symbols.fallback.css',
+					'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.fallback.css': [
+						'<%= SETTINGS.folder.temp %>/BOM/grunticon/fallback.css',
+						'<%= SETTINGS.folder.css %>/BOM/symbols.fallback.css',
 					],
 				},
 			},
 
-			js: {
+			grunticonBSA: {
 				files: {
-					'<%= SETTINGS.folder.prod %>/assets/js/site-<%= pkg.version %>.min.js': [
-						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
-						'<%= SETTINGS.folder.js %>/**/*store*.js',
-						'<%= SETTINGS.folder.prod %>/assets/js/site-<%= pkg.version %>.min.js',
+					'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
+						'<%= SETTINGS.folder.temp %>/BSA/grunticon/svg.css',
+						'<%= SETTINGS.folder.css %>/BSA/symbols.data.svg.css',
+					],
+					'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.data.png.css': [
+						'<%= SETTINGS.folder.temp %>/BSA/grunticon/png.css',
+						'<%= SETTINGS.folder.css %>/BSA/symbols.data.png.css',
+					],
+					'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.fallback.css': [
+						'<%= SETTINGS.folder.temp %>/BSA/grunticon/fallback.css',
+						'<%= SETTINGS.folder.css %>/BSA/symbols.fallback.css',
+					],
+				},
+			},
+
+			grunticonSTG: {
+				files: {
+					'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
+						'<%= SETTINGS.folder.temp %>/STG/grunticon/svg.css',
+						'<%= SETTINGS.folder.css %>/STG/symbols.data.svg.css',
+					],
+					'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.data.png.css': [
+						'<%= SETTINGS.folder.temp %>/STG/grunticon/png.css',
+						'<%= SETTINGS.folder.css %>/STG/symbols.data.png.css',
+					],
+					'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.fallback.css': [
+						'<%= SETTINGS.folder.temp %>/STG/grunticon/fallback.css',
+						'<%= SETTINGS.folder.css %>/STG/symbols.fallback.css',
+					],
+				},
+			},
+
+			grunticonWBC: {
+				files: {
+					'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
+						'<%= SETTINGS.folder.temp %>/WBC/grunticon/svg.css',
+						'<%= SETTINGS.folder.css %>/WBC/symbols.data.svg.css',
+					],
+					'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.data.png.css': [
+						'<%= SETTINGS.folder.temp %>/WBC/grunticon/png.css',
+						'<%= SETTINGS.folder.css %>/WBC/symbols.data.png.css',
+					],
+					'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.fallback.css': [
+						'<%= SETTINGS.folder.temp %>/WBC/grunticon/fallback.css',
+						'<%= SETTINGS.folder.css %>/WBC/symbols.fallback.css',
+					],
+				},
+			},
+
+			jsBOM: {
+				files: {
+					'<%= SETTINGS.folder.prod %>/BOM/assets/js/site-<%= pkg.version %>.min.js': [
+						'<%= SETTINGS.folder.js %>/lib/**/*.js',
+						'<%= SETTINGS.folder.temp %>/BOM/js/uglified.js',
+					],
+				},
+			},
+
+			jsBSA: {
+				files: {
+					'<%= SETTINGS.folder.prod %>/BSA/assets/js/site-<%= pkg.version %>.min.js': [
+						'<%= SETTINGS.folder.js %>/lib/**/*.js',
+						'<%= SETTINGS.folder.temp %>/BSA/js/uglified.js',
+					],
+				},
+			},
+
+			jsSTG: {
+				files: {
+					'<%= SETTINGS.folder.prod %>/STG/assets/js/site-<%= pkg.version %>.min.js': [
+						'<%= SETTINGS.folder.js %>/lib/**/*.js',
+						'<%= SETTINGS.folder.temp %>/STG/js/uglified.js',
+					],
+				},
+			},
+
+			jsWBC: {
+				files: {
+					'<%= SETTINGS.folder.prod %>/WBC/assets/js/site-<%= pkg.version %>.min.js': [
+						'<%= SETTINGS.folder.js %>/lib/**/*.js',
+						'<%= SETTINGS.folder.temp %>/WBC/js/uglified.js',
 					],
 				},
 			},
@@ -246,13 +500,40 @@ module.exports = function(grunt) {
 
 			BOM: {
 				files: {
-					'<%= SETTINGS.folder.prod %>/assets/js/site-<%= pkg.version %>.min.js': [
-						'<%= SETTINGS.folder.js %>/**/*.js',
-						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
-						'!<%= SETTINGS.folder.js %>/**/*store*.js',
+					'<%= SETTINGS.folder.temp %>/BOM/js/uglified.js': [
+						'<%= SETTINGS.folder.temp %>/BOM/js/**/*.js',
+						'!<%= SETTINGS.folder.temp %>/BOM/js/lib/**/*.js',
 					],
 				},
 			},
+
+			BSA: {
+				files: {
+					'<%= SETTINGS.folder.temp %>/BSA/js/uglified.js': [
+						'<%= SETTINGS.folder.temp %>/BSA/js/**/*.js',
+						'!<%= SETTINGS.folder.temp %>/BSA/js/lib/**/*.js',
+					],
+				},
+			},
+
+			STG: {
+				files: {
+					'<%= SETTINGS.folder.temp %>/STG/js/uglified.js': [
+						'<%= SETTINGS.folder.temp %>/STG/js/**/*.js',
+						'!<%= SETTINGS.folder.temp %>/STG/js/lib/**/*.js',
+					],
+				},
+			},
+
+			WBC: {
+				files: {
+					'<%= SETTINGS.folder.temp %>/WBC/js/uglified.js': [
+						'<%= SETTINGS.folder.temp %>/WBC/js/**/*.js',
+						'!<%= SETTINGS.folder.temp %>/WBC/js/lib/**/*.js',
+					],
+				},
+			},
+
 		},
 
 
@@ -261,66 +542,324 @@ module.exports = function(grunt) {
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		grunticon: {
 			options: {
-				datasvgcss: 'symbols-<%= pkg.version %>.data.svg.css',
-				datapngcss: 'symbols-<%= pkg.version %>.data.png.css',
-				urlpngcss: 'symbols-<%= pkg.version %>.fallback.css',
-				cssprefix: '.sitesymbol-',
+				datasvgcss: 'svg.css',
+				datapngcss: 'png.css',
+				urlpngcss: 'fallback.css',
+				cssprefix: '.svg-',
 				enhanceSVG: true,
-				customselectors: {
-					'header-bg': ['.header .headerline'],
-				},
 				pngpath: '../img',
 			},
 
-			build: {
+			BOM: {
 				files: [{
 					expand: true,
 					cwd: '<%= SETTINGS.folder.svg %>/',
 					src: [
-						'*.svg',
+						'BOM/*.svg',
+						'all/*.svg',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/assets/css',
+					dest: '<%= SETTINGS.folder.temp %>/BOM/grunticon',
+				}],
+			},
+
+			BSA: {
+				files: [{
+					expand: true,
+					cwd: '<%= SETTINGS.folder.svg %>/',
+					src: [
+						'BSA/*.svg',
+						'all/*.svg',
+					],
+					dest: '<%= SETTINGS.folder.temp %>/BSA/grunticon',
+				}],
+			},
+
+			STG: {
+				files: [{
+					expand: true,
+					cwd: '<%= SETTINGS.folder.svg %>/',
+					src: [
+						'STG/*.svg',
+						'all/*.svg',
+					],
+					dest: '<%= SETTINGS.folder.temp %>/STG/grunticon',
+				}],
+			},
+
+			WBC: {
+				files: [{
+					expand: true,
+					cwd: '<%= SETTINGS.folder.svg %>/',
+					src: [
+						'WBC/*.svg',
+						'all/*.svg',
+					],
+					dest: '<%= SETTINGS.folder.temp %>/WBC/grunticon',
 				}],
 			},
 		},
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// Copy all grunticon fallback pngs to img folder
+		// Includes task
+		//----------------------------------------------------------------------------------------------------------------------------------------------------------
+		includereplace: {
+			BOM: {
+				options: {
+					includesDir: '<%= SETTINGS.folder.temp %>/BOM/html/_includes/',
+				},
+				cwd: '<%= SETTINGS.folder.temp %>/BOM/html/',
+				src: [
+					'**/*.html',
+					'!_includes/**/*.html',
+				],
+				dest: '<%= SETTINGS.folder.prod %>/BOM/',
+				expand: true,
+				flatten: false,
+			},
+
+			BSA: {
+				options: {
+					includesDir: '<%= SETTINGS.folder.temp %>/BSA/html/_includes/',
+				},
+				cwd: '<%= SETTINGS.folder.temp %>/BSA/html/',
+				src: [
+					'**/*.html',
+					'!_includes/**/*.html',
+				],
+				dest: '<%= SETTINGS.folder.prod %>/BSA/',
+				expand: true,
+				flatten: false,
+			},
+
+			STG: {
+				options: {
+					includesDir: '<%= SETTINGS.folder.temp %>/STG/html/_includes/',
+				},
+				cwd: '<%= SETTINGS.folder.temp %>/STG/html/',
+				src: [
+					'**/*.html',
+					'!_includes/**/*.html',
+				],
+				dest: '<%= SETTINGS.folder.prod %>/STG/',
+				expand: true,
+				flatten: false,
+			},
+
+			WBC: {
+				options: {
+					includesDir: '<%= SETTINGS.folder.temp %>/WBC/html/_includes/',
+				},
+				cwd: '<%= SETTINGS.folder.temp %>/WBC/html/',
+				src: [
+					'**/*.html',
+					'!_includes/**/*.html',
+				],
+				dest: '<%= SETTINGS.folder.prod %>/WBC/',
+				expand: true,
+				flatten: false,
+			},
+		},
+
+
+		//----------------------------------------------------------------------------------------------------------------------------------------------------------
+		// Copy stuff around
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		copy: {
-			//grunticon cleanup
-			fallbackimages: {
+			moveTempBOM: {
 				files: [{
-					cwd: '<%= SETTINGS.folder.prod %>/assets/css/png/',
+					src: [
+						'**/*.html',
+						'**/*.less',
+						'**/*.js',
+					],
+					cwd: '<%= SETTINGS.folder.dev %>',
+					dest: '<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[0] %>',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			moveTempBSA: {
+				files: [{
+					src: [
+						'**/*.html',
+						'**/*.less',
+						'**/*.js',
+					],
+					cwd: '<%= SETTINGS.folder.dev %>',
+					dest: '<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[1] %>',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			moveTempSTG: {
+				files: [{
+					src: [
+						'**/*.html',
+						'**/*.less',
+						'**/*.js',
+					],
+					cwd: '<%= SETTINGS.folder.dev %>',
+					dest: '<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[2] %>',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			moveTempWBC: {
+				files: [{
+					src: [
+						'**/*.html',
+						'**/*.less',
+						'**/*.js',
+					],
+					cwd: '<%= SETTINGS.folder.dev %>',
+					dest: '<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[3] %>',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			//grunticon fallbacks
+			fallback1BOM: {
+				files: [{
 					src: ['**/*.png'],
-					dest: '<%= SETTINGS.folder.prod %>/assets/img/',
+					cwd: '<%= SETTINGS.folder.temp %>/BOM/grunticon/png/',
+					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/img/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			fallback2BOM: {
+				files: [{
+					src: ['**/*.png'],
+					cwd: '<%= SETTINGS.folder.dev %>/img/BOM/',
+					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/img/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			fallback1BSA: {
+				files: [{
+					src: ['**/*.png'],
+					cwd: '<%= SETTINGS.folder.temp %>/BSA/grunticon/png/',
+					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/img/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			fallback2BSA: {
+				files: [{
+					src: ['**/*.png'],
+					cwd: '<%= SETTINGS.folder.dev %>/img/BSA/',
+					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/img/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			fallback1STG: {
+				files: [{
+					src: ['**/*.png'],
+					cwd: '<%= SETTINGS.folder.temp %>/STG/grunticon/png/',
+					dest: '<%= SETTINGS.folder.prod %>/STG/assets/img/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			fallback2STG: {
+				files: [{
+					src: ['**/*.png'],
+					cwd: '<%= SETTINGS.folder.dev %>/img/STG/',
+					dest: '<%= SETTINGS.folder.prod %>/STG/assets/img/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			fallback1WBC: {
+				files: [{
+					src: ['**/*.png'],
+					cwd: '<%= SETTINGS.folder.temp %>/WBC/grunticon/png/',
+					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/img/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			fallback2WBC: {
+				files: [{
+					src: ['**/*.png'],
+					cwd: '<%= SETTINGS.folder.dev %>/img/WBC/',
+					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
 			},
 
 			//HTML
-			HTML: {
+			htmlBOM: {
 				files: [{
-					cwd: '<%= SETTINGS.folder.html %>/',
+					cwd: '<%= SETTINGS.folder.temp %>/BOM/html',
 					src: [
 						'**/*.html',
 						'**/*.md',
 						'**/*.liquid',
-						'!_assets/**/*',
-						'!_*/**/*',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/',
+					dest: '<%= SETTINGS.folder.prod %>/BOM/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			htmlBSA: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.temp %>/BSA/html',
+					src: [
+						'**/*.html',
+						'**/*.md',
+						'**/*.liquid',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/BSA/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			htmlSTG: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.temp %>/STG/html',
+					src: [
+						'**/*.html',
+						'**/*.md',
+						'**/*.liquid',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/STG/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			htmlWBC: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.temp %>/WBC/html',
+					src: [
+						'**/*.html',
+						'**/*.md',
+						'**/*.liquid',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/WBC/',
 					filter: 'isFile',
 					expand: true,
 				}],
 			},
 
 			//fonts
-			fonts: {
+			allFontBOM: {
 				files: [{
-					cwd: '<%= SETTINGS.folder.font %>/',
+					cwd: '<%= SETTINGS.folder.font %>/all',
 					src: [
 						'**/*.eot',
 						'**/*.svg',
@@ -328,133 +867,252 @@ module.exports = function(grunt) {
 						'**/*.woff',
 						'**/*.woff2',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/assets/font/',
+					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/font/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			fontBOM: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.font %>/BOM',
+					src: [
+						'**/*.eot',
+						'**/*.svg',
+						'**/*.ttf',
+						'**/*.woff',
+						'**/*.woff2',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/font/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			allFontBSA: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.font %>/all',
+					src: [
+						'**/*.eot',
+						'**/*.svg',
+						'**/*.ttf',
+						'**/*.woff',
+						'**/*.woff2',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/font/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			fontBSA: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.font %>/BSA',
+					src: [
+						'**/*.eot',
+						'**/*.svg',
+						'**/*.ttf',
+						'**/*.woff',
+						'**/*.woff2',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/font/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			allFontSTG: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.font %>/all',
+					src: [
+						'**/*.eot',
+						'**/*.svg',
+						'**/*.ttf',
+						'**/*.woff',
+						'**/*.woff2',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/STG/assets/font/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			fontSTG: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.font %>/STG',
+					src: [
+						'**/*.eot',
+						'**/*.svg',
+						'**/*.ttf',
+						'**/*.woff',
+						'**/*.woff2',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/STG/assets/font/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			allFontWBC: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.font %>/all',
+					src: [
+						'**/*.eot',
+						'**/*.svg',
+						'**/*.ttf',
+						'**/*.woff',
+						'**/*.woff2',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/font/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			fontWBC: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.font %>/WBC',
+					src: [
+						'**/*.eot',
+						'**/*.svg',
+						'**/*.ttf',
+						'**/*.woff',
+						'**/*.woff2',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/font/',
 					filter: 'isFile',
 					expand: true,
 				}],
 			},
 
 			//images
-			img: {
+			imgBOM: {
 				files: [{
-					cwd: '<%= SETTINGS.folder.img %>/',
+					cwd: '<%= SETTINGS.folder.img %>/all',
 					src: [
 						'**/*.png',
 						'**/*.jpg',
 						'**/*.gif',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/assets/img/',
+					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
 			},
 
-			//htaccess files
-			htaccess: {
+			imgBSA: {
 				files: [{
-					cwd: '<%= SETTINGS.folder.htaccess %>/',
+					cwd: '<%= SETTINGS.folder.img %>/all',
 					src: [
-						'*.htaccess',
-						'.htaccess',
+						'**/*.png',
+						'**/*.jpg',
+						'**/*.gif',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/',
+					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/img/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			imgSTG: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.img %>/all',
+					src: [
+						'**/*.png',
+						'**/*.jpg',
+						'**/*.gif',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/STG/assets/img/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			imgWBC: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.img %>/all',
+					src: [
+						'**/*.png',
+						'**/*.jpg',
+						'**/*.gif',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
 			},
 
 			//favicons files
-			favicons: {
+			faviconsAllBOM: {
 				files: [{
-					cwd: '<%= SETTINGS.folder.favicons %>/',
-					src: [
-						'*',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/',
+					cwd: '<%= SETTINGS.folder.favicons %>/all',
+					src: ['*'],
+					dest: '<%= SETTINGS.folder.prod %>/BOM/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			faviconsBOM: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.favicons %>/BOM',
+					src: ['*'],
+					dest: '<%= SETTINGS.folder.prod %>/BOM/',
 					filter: 'isFile',
 					expand: true,
 				}],
 			},
 
-			//HTML underscore folders
-			HTML_: {
+			faviconsAllBSA: {
 				files: [{
-					cwd: '<%= SETTINGS.folder.html %>/',
-					src: [
-						'_*/**/*.html',
-						'_*/**/*.md',
-						'_*/**/*.liquid',
-						'*.yml',
-						'*.htaccess',
-						'.htaccess',
-						'*.json',
-						'_plugins/**/*',
-						'!_assets/**/*',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/',
+					cwd: '<%= SETTINGS.folder.favicons %>/all',
+					src: ['*'],
+					dest: '<%= SETTINGS.folder.prod %>/BSA/',
 					filter: 'isFile',
 					expand: true,
 				}],
 			},
-		},
-
-
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// JEKYLL
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		jekyll: {
-			options: {
-				src : '<%= SETTINGS.folder.prod %>'
+			faviconsBSA: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.favicons %>/BSA',
+					src: ['*'],
+					dest: '<%= SETTINGS.folder.prod %>/BSA/',
+					filter: 'isFile',
+					expand: true,
+				}],
 			},
 
-			dev: {
-				options: {
-					dest: '<%= SETTINGS.folder.prod %>/_site',
-					config: '<%= SETTINGS.folder.prod %>/_config.yml',
-				},
+			faviconsAllSTG: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.favicons %>/all',
+					src: ['*'],
+					dest: '<%= SETTINGS.folder.prod %>/STG/',
+					filter: 'isFile',
+					expand: true,
+				}],
 			},
-			prod: {
-				options: {
-					dest: '<%= SETTINGS.folder.prod %>/_site',
-					config: '<%= SETTINGS.folder.prod %>/_config.build.yml',
-				},
+			faviconsSTG: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.favicons %>/STG',
+					src: ['*'],
+					dest: '<%= SETTINGS.folder.prod %>/STG/',
+					filter: 'isFile',
+					expand: true,
+				}],
 			},
-		},
 
-
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// LINT SPACES
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		lintspaces: {
-			all: {
-				options: {
-					editorconfig: '.editorconfig',
-					ignores: [
-						'js-comments',
-						'c-comments',
-						'java-comments',
-						'as-comments',
-						'xml-comments',
-						'html-comments',
-						'python-comments',
-						'ruby-comments',
-						'applescript-comments',
-					],
-				},
-				src: [
-					'**/*.js',
-					'**/*.less',
-					'**/*.css',
-					'**/*.html',
-
-					'!jekyll/**/*',
-					'!HTML/_assets/js/**/*jquery*.js',
-					'!GUI-source-master/**/*',
-					'!file-server/server.js',
-					'!file-server/node_modules/**/*',
-					'!node_modules/**/*',
-					'!Gruntfile.js',
-				],
+			faviconsAllWBC: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.favicons %>/all',
+					src: ['*'],
+					dest: '<%= SETTINGS.folder.prod %>/WBC/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			faviconsWBC: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.favicons %>/WBC',
+					src: ['*'],
+					dest: '<%= SETTINGS.folder.prod %>/WBC/',
+					filter: 'isFile',
+					expand: true,
+				}],
 			},
 		},
 
@@ -470,17 +1128,7 @@ module.exports = function(grunt) {
 			},
 
 			title: {
-				text: '| GUI docs',
-			},
-
-			updating: {
-				options: {
-					font: 'simple',
-					maxLength: 30,
-					colors: ['magenta'],
-				},
-
-				text: 'Updating...',
+				text: '| Locate-us',
 			},
 		},
 
@@ -506,31 +1154,14 @@ module.exports = function(grunt) {
 				livereload: true,
 			},
 
-			node: {
-				files: [
-					'<%= SETTINGS.folder.fileserver %>/*.js',
-					'!<%= SETTINGS.folder.fileserver %>/server.js',
-				],
-				tasks: [
-					// 'lintspaces',
-					'_buildNode',
-					'replace:node',
-					'replace:debugDev',
-					'wakeup',
-				],
-			},
-
 			js: {
 				files: [
 					'<%= SETTINGS.folder.js %>/**/*.js',
 				],
 				tasks: [
-					// 'lintspaces',
-					'uglify',
-					'concat:js',
-					'replace:jekyll',
-					'replace:debugDev',
-					'jekyll:dev',
+					'_replaceDev',
+					'_js',
+					'clean:temp',
 					'wakeup',
 				],
 			},
@@ -540,11 +1171,9 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.less %>/**/*.less',
 				],
 				tasks: [
-					// 'lintspaces',
-					'less',
-					'replace:jekyll',
-					'replace:debugDev',
-					'jekyll:dev',
+					'_replaceDev',
+					'_less',
+					'clean:temp',
 					'wakeup',
 				],
 			},
@@ -554,47 +1183,33 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.svg %>/**/*.svg',
 				],
 				tasks: [
-					'grunticon',
-					'copy',
-					'less',
-					'replace:jekyll',
-					'replace:debugDev',
-					'concat:grunticon',
-					'clean:grunticon',
-					'jekyll:dev',
+					'_replaceDev',
+					'_svg',
+					'clean:temp',
 					'wakeup',
 				],
 			},
 
 			html: {
 				files: [
-					'<%= SETTINGS.folder.html %>/**/*.md',
-					'<%= SETTINGS.folder.html %>/**/*.liquid',
 					'<%= SETTINGS.folder.html %>/**/*.html',
-					'<%= SETTINGS.folder.html %>/**/*.yml',
-					'<%= SETTINGS.folder.html %>/**/*.json',
-					'<%= SETTINGS.folder.html %>/_plugins/**/*',
 				],
 				tasks: [
-					// 'lintspaces',
-					'copy:HTML',
-					'copy:HTML_',
-					'replace:jekyll',
-					'replace:debugDev',
-					'jekyll:dev',
+					'_replaceDev',
+					'_html',
+					'clean:temp',
 					'wakeup',
 				],
 			},
 
-			htaccess: {
+			favicons: {
 				files: [
-					'<%= SETTINGS.folder.htaccess %>/**/*.htaccess',
-					'<%= SETTINGS.folder.htaccess %>/**/.htaccess',
+					'<%= SETTINGS.folder.favicons %>/**/*',
 				],
 				tasks: [
-					// 'lintspaces',
-					'copy:htaccess',
-					'jekyll:dev',
+					'_replaceDev',
+					'_favicons',
+					'clean:temp',
 					'wakeup',
 				],
 			},
@@ -610,8 +1225,8 @@ module.exports = function(grunt) {
 					open: false,
 					hostname: '127.0.0.1',
 					port: 1337,
-					directory: '<%= SETTINGS.folder.prod %>/_site/',
-					base: '<%= SETTINGS.folder.prod %>/_site/',
+					directory: '<%= SETTINGS.folder.prod %>',
+					base: '<%= SETTINGS.folder.prod %>',
 				},
 			},
 		},
@@ -623,43 +1238,152 @@ module.exports = function(grunt) {
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Private tasks
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	grunt.registerTask('_buildDocs', [
-		'clean:jekyll',
-		// 'lintspaces',
+	grunt.registerTask('_replaceDev', [
+		'copy:moveTempBOM',
+		'copy:moveTempBSA',
+		'copy:moveTempSTG',
+		'copy:moveTempWBC',
+		'replace:devBOM',
+		'replace:devBSA',
+		'replace:devSTG',
+		'replace:devWBC',
+	]);
+
+	grunt.registerTask('_replaceProd', [
+		'copy:moveTempBOM',
+		'copy:moveTempBSA',
+		'copy:moveTempSTG',
+		'copy:moveTempWBC',
+		'replace:prodBOM',
+		'replace:prodBSA',
+		'replace:prodSTG',
+		'replace:prodWBC',
+	]);
+
+	grunt.registerTask('_less', [
 		'less',
-		'uglify',
-		'concat:js',
-		'grunticon',
-		'copy',
-		'concat:grunticon',
-		'replace:jekyll',
-		'clean:grunticon',
+	]);
+
+	grunt.registerTask('_svg', [
+		'grunticon:BOM',
+		'grunticon:BSA',
+		'grunticon:STG',
+		'grunticon:WBC',
+		'concat:grunticonBOM',
+		'concat:grunticonBSA',
+		'concat:grunticonSTG',
+		'concat:grunticonWBC',
+		'copy:fallback1BOM',
+		'copy:fallback2BOM',
+		'copy:fallback1BSA',
+		'copy:fallback2BSA',
+		'copy:fallback1STG',
+		'copy:fallback2STG',
+		'copy:fallback1WBC',
+		'copy:fallback2WBC',
+	]);
+
+	grunt.registerTask('_js', [
+		'uglify:BOM',
+		'uglify:BSA',
+		'uglify:STG',
+		'uglify:WBC',
+		'concat:jsBOM',
+		'concat:jsBSA',
+		'concat:jsSTG',
+		'concat:jsWBC',
+	]);
+
+	grunt.registerTask('_html', [
+		'includereplace:BOM',
+		'includereplace:BSA',
+		'includereplace:STG',
+		'includereplace:WBC',
+	]);
+
+	grunt.registerTask('_fonts', [
+		'copy:allFontBOM',
+		'copy:fontBOM',
+		'copy:allFontBSA',
+		'copy:fontBSA',
+		'copy:allFontSTG',
+		'copy:fontSTG',
+		'copy:allFontWBC',
+		'copy:fontWBC',
+	]);
+
+	grunt.registerTask('_img', [
+		'copy:imgBOM',
+		'copy:imgBSA',
+		'copy:imgSTG',
+		'copy:imgWBC',
+	]);
+
+	grunt.registerTask('_favicons', [
+		'copy:faviconsAllBOM',
+		'copy:faviconsBOM',
+		'copy:faviconsAllBSA',
+		'copy:faviconsBSA',
+		'copy:faviconsAllSTG',
+		'copy:faviconsSTG',
+		'copy:faviconsAllWBC',
+		'copy:faviconsWBC',
+	]);
+
+
+	grunt.registerTask('_buildDev', [
+		'clean:temp',
+		'clean:prod',
+
+		'_replaceDev',
+		'_less',
+		'_svg',
+		'_js',
+		'_html',
+		'_fonts',
+		'_img',
+		'_favicons',
+
+		'clean:temp',
+	]);
+
+	grunt.registerTask('_buildProd', [
+		'clean:temp',
+		'clean:prod',
+
+		'_replaceProd',
+		'_less',
+		'_svg',
+		'_js',
+		'_html',
+		'_fonts',
+		'_img',
+		'_favicons',
+
+		'clean:temp',
 	]);
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Build tasks
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	grunt.registerTask('default', [ //run build with watch
-		'build',
-		'connect',
-		'watch',
-	]);
-
 	grunt.registerTask('build', [ //run everything with debug on
 		'font:title',
-		'_buildDocs',
-		'replace:debugDev',
-		'jekyll:dev',
+		'_buildDev',
 		'wakeup',
 	]);
 
 	grunt.registerTask('prod', [ //run everything with debug off
 		'font:title',
-		'_buildDocs',
-		'replace:debugProd',
-		'jekyll:prod',
+		'_buildProd',
 		'wakeup',
+	]);
+
+
+	grunt.registerTask('default', [ //run build in dev mode with watch and server
+		'build',
+		'connect',
+		'watch',
 	]);
 
 };

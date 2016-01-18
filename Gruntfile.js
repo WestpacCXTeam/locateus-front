@@ -369,11 +369,11 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[0] %>/assets/css/site-<%= pkg.version %>.min.css':
 						'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[0] %>/less/theme.less',
 					'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[1] %>/assets/css/site-<%= pkg.version %>.min.css':
-						'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[0] %>/less/theme.less',
+						'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[1] %>/less/theme.less',
 					'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[2] %>/assets/css/site-<%= pkg.version %>.min.css':
-						'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[0] %>/less/theme.less',
+						'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[2] %>/less/theme.less',
 					'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[3] %>/assets/css/site-<%= pkg.version %>.min.css':
-						'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[0] %>/less/theme.less',
+						'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[3] %>/less/theme.less',
 				},
 			},
 		},

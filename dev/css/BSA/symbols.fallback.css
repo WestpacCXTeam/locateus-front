@@ -1,0 +1,108 @@
+.checkbox-input:disabled + .checkbox-text,
+.symbol-checkbox-off-disabled { background-image: url('../img/checkbox-off-disabled.png'); background-repeat: no-repeat; }
+
+.checkbox-input + .checkbox-text,
+.symbol-checkbox-off { background-image: url('../img/checkbox-off.png'); background-repeat: no-repeat; }
+
+.checkbox-input:disabled:checked + .checkbox-text,
+.symbol-checkbox-on-disabled { background-image: url('../img/checkbox-on-disabled.png'); background-repeat: no-repeat; }
+
+.checkbox-input:checked + .checkbox-text,
+.symbol-checkbox-on { background-image: url('../img/checkbox-on.png'); background-repeat: no-repeat; }
+
+.icon-accessibility,
+.symbol-accessibility { background-image: url('../img/accessibility.png'); background-repeat: no-repeat; }
+
+.icon-car,
+.symbol-car { background-image: url('../img/car.png'); background-repeat: no-repeat; }
+
+.icon-geolocation,
+.symbol-geolocation { background-image: url('../img/geolocation.png'); background-repeat: no-repeat; }
+
+.icon-map-pin,
+.symbol-map-pin { background-image: url('../img/map-pin.png'); background-repeat: no-repeat; }
+
+.icon-map,
+.symbol-map { background-image: url('../img/map.png'); background-repeat: no-repeat; }
+
+.icon-transport,
+.symbol-transport { background-image: url('../img/transport.png'); background-repeat: no-repeat; }
+
+.icon-walk,
+.symbol-walk { background-image: url('../img/walk.png'); background-repeat: no-repeat; }
+
+.icon-wheelchair,
+.symbol-wheelchair { background-image: url('../img/wheelchair.png'); background-repeat: no-repeat; }
+
+.icon-download,
+.symbol-download { background-image: url('../img/download.png'); background-repeat: no-repeat; }
+
+.icon-new-window,
+.symbol-new-window { background-image: url('../img/new-window.png'); background-repeat: no-repeat; }
+
+.icon-refresh,
+.symbol-refresh { background-image: url('../img/refresh.png'); background-repeat: no-repeat; }
+
+.icon-search,
+.symbol-search { background-image: url('../img/search.png'); background-repeat: no-repeat; }
+
+.icon-upload,
+.symbol-upload { background-image: url('../img/upload.png'); background-repeat: no-repeat; }
+
+.icon-write,
+.symbol-write { background-image: url('../img/write.png'); background-repeat: no-repeat; }
+
+.icon-alert,
+.symbol-alert { background-image: url('../img/alert.png'); background-repeat: no-repeat; }
+
+.icon-face-happy,
+.symbol-face-happy { background-image: url('../img/face-happy.png'); background-repeat: no-repeat; }
+
+.icon-face-hmm,
+.symbol-face-hmm { background-image: url('../img/face-hmm.png'); background-repeat: no-repeat; }
+
+.icon-face-sad,
+.symbol-face-sad { background-image: url('../img/face-sad.png'); background-repeat: no-repeat; }
+
+.icon-help,
+.symbol-help { background-image: url('../img/help.png'); background-repeat: no-repeat; }
+
+.icon-info,
+.symbol-info { background-image: url('../img/info.png'); background-repeat: no-repeat; }
+
+.logo-bom-alt,
+.symbol-bom-alt { background-image: url('../img/bom-alt.png'); background-repeat: no-repeat; }
+
+.logo-bom-phone,
+.symbol-bom-phone { background-image: url('../img/bom-phone.png'); background-repeat: no-repeat; }
+
+.logo-bom-tablet,
+.symbol-bom-tablet { background-image: url('../img/bom-tablet.png'); background-repeat: no-repeat; }
+
+.logo-bsa-alt,
+.symbol-bsa-alt { background-image: url('../img/bsa-alt.png'); background-repeat: no-repeat; }
+
+.logo-bsa-phone,
+.symbol-bsa-phone { background-image: url('../img/bsa-phone.png'); background-repeat: no-repeat; }
+
+.logo-bsa-tablet,
+.symbol-bsa-tablet { background-image: url('../img/bsa-tablet.png'); background-repeat: no-repeat; }
+
+.logo-stg-alt,
+.symbol-stg-alt { background-image: url('../img/stg-alt.png'); background-repeat: no-repeat; }
+
+.logo-stg-phone,
+.symbol-stg-phone { background-image: url('../img/stg-phone.png'); background-repeat: no-repeat; }
+
+.logo-stg-tablet,
+.symbol-stg-tablet { background-image: url('../img/stg-tablet.png'); background-repeat: no-repeat; }
+
+.logo-wbc-alt,
+.symbol-wbc-alt { background-image: url('../img/wbc-alt.png'); background-repeat: no-repeat; }
+
+.logo-wbc-phone,
+.symbol-wbc-phone { background-image: url('../img/wbc-phone.png'); background-repeat: no-repeat; }
+
+.logo-wbc-tablet,
+.symbol-wbc-tablet { background-image: url('../img/wbc-tablet.png'); background-repeat: no-repeat; }
+

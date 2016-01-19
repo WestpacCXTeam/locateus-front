@@ -1,0 +1,46 @@
+<div class="row">
+	<div class="col-sm-8 searchresult">
+		<p class="searchresult-text">
+			Results for <strong>Branches</strong> in or near <strong>Liverpool</strong>
+		</p>
+
+		<span class="sr-only">This search uses the following filter:</span>
+		<ul class="searchresult-filters">
+			<li class="searchresult-filters-item">
+				@@include('module/pill.html', {"label": "Open Saturday"})
+			</li>
+			<li class="searchresult-filters-item">
+				@@include('module/pill.html', {"label": "ATM in branch"})
+			</li>
+		</ul>
+	</div>
+
+	<div class="col-sm-4 text-right">
+		<button type="button" class="btn btn-neutral btn-soft">
+			<span class="btn-icon btn-icon-left icon icon-size-sm icon-map-pin" data-grunticon-embed></span>
+			<span class="btn-text">View on map</span>
+		</button>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<ol class="result">
+			<li class="result-item">
+				@@include('module/listing-branch-atm.html')
+			</li>
+			<li class="result-item">
+				@@include('module/listing-branch-atm-warning.html')
+			</li>
+			<li class="result-item">
+				@@include('module/listing-branch-atm.html')
+			</li>
+			<li class="result-item">
+				@@include('module/listing-branch-atm.html')
+			</li>
+			<li class="result-item">
+				@@include('module/listing-branch-atm.html')
+			</li>
+		</ol>
+	</div>
+</div>

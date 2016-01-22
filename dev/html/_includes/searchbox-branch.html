@@ -31,7 +31,7 @@
 			</div>
 		</div>
 		<div class="col-sm-5">
-			<p class="lead">
+			<p class="lead hidden-xs">
 				Looking for a branch, ATM, after-hours coin deposit or just some expert advice? You can search by address, suburb, postcode or BSB.
 			</p>
 		</div>
@@ -56,7 +56,7 @@
 		<div class="col-sm-7">
 			<div class="row">
 				<div class="col-sm-5 col-sm-offset-4">
-					<ul>
+					<ul class="searchbox-moreoptions">
 						<li>
 							@@include('module/checkbox.html', {"text": "Safe deposit box", "name": "safeDepositBox"})
 							@@include('module/help.html', {"text": "More information about this item"})
@@ -83,7 +83,7 @@
 			</div>
 		</div>
 		<div class="col-sm-5">
-			<ul>
+			<ul class="searchbox-moreoptions">
 				<li>
 					Financial experts in branch
 				</li>
@@ -157,7 +157,11 @@
 		<div class="col-sm-7">
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-4">
-					<button class="btn btn-primary" type="submit">Search</button>
+					<div class="row">
+						<div class="col-sm-6">
+							<button class="btn btn-primary btn-block" type="submit">Search</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

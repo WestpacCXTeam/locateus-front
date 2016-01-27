@@ -55,27 +55,27 @@
 
 				<h1 class="body-font">Find a branch, ATM or expert</h1>
 
-				<form class="searchbox well">
+				<form class="searchbox well well-responsive">
 	<div class="row">
 		<div class="col-sm-7">
-			<div class="row">
+			<div class="row searchbox-line">
 				<div class="col-sm-4">
 					<label class="searchbox-label" for="where">Where</label>
 				</div>
 				<div class="col-sm-8 searchbox-input-wrapper">
 					<input class="searchbox-input input-field" id="where" name="where" type="text" placeholder="Suburb, postcode, address or BSB">
-					<button class="searchbox-iconbtn btn btn-link" type="button" type="button">
+					<button class="searchbox-iconbtn btn btn-link" type="button">
 						<span class="icon icon-size-sm icon-geolocation"></span>
 					</button>
 				</div>
 			</div>
 
-			<div class="row">
+			<div class="row searchbox-line">
 				<div class="col-sm-4">
 					<label class="searchbox-label" for="find">Find</label>
 				</div>
 				<div class="col-sm-8">
-					<div class="input-field-select-wrapper">
+					<div class="input-field-select-wrapper searchbox-find">
 						<select class="input-field-select" id="find" name="find">
 							<option value="Branches">Branches</option>
 							<option value="ATMs">ATMs</option>
@@ -87,8 +87,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-5">
-			<p class="lead">
+		<div class="col-sm-4">
+			<p class="lead hidden-xs">
 				Looking for a branch, ATM, after-hours coin deposit or just some expert advice? You can search by address, suburb, postcode or BSB.
 			</p>
 		</div>
@@ -96,28 +96,24 @@
 
 	<div class="row">
 		<div class="col-sm-7">
-			<div class="row">
-				<div class="col-sm-8 col-sm-offset-4">
+			<div class="row searchbox-line">
+				<div class="col-sm-12 col-sm-offset-4">
 					<label class="checkbox">
 	<input class="checkbox-input" type="checkbox" name="openSaturdays">
 	<span class="checkbox-text">Open Saturdays</span>
 </label>
-					<button class="searchbox-optionsbtn btn btn-link" type="button">
-						<span class="searchbox-optionsbtn-more">More</span>
-						<span class="searchbox-optionsbtn-more">Less</span>
-						options
-					</button>
+					<a href="#searchbox-options" class="searchbox-optionsbtn link-more">More options</a>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="row">
+	<div id="searchbox-options" class="row" style='display:none;'>
 		<div class="col-sm-7">
 			<div class="row">
-				<div class="col-sm-5 col-sm-offset-4">
-					<ul>
-						<li>
+				<div class="col-sm-8 col-sm-offset-4">
+					<ul class="searchbox-moreoptions lists-unstyled">
+						<li class="searchbox-line">
 							<label class="checkbox">
 	<input class="checkbox-input" type="checkbox" name="safeDepositBox">
 	<span class="checkbox-text">Safe deposit box</span>
@@ -129,15 +125,15 @@
 
 	<div class="js-popoverbody popover-popup" aria-hidden="true" tabindex="-1" aria-label="Use the ESC key to close">
 		<p class="popover-popup-title">
-			Info
+			Safe deposit box
 		</p>
 		<p class="popover-popup-body">
-			More information about this item
+			More information about this item...
 		</p>
 	</div>
 </div>
 						</li>
-						<li>
+						<li class="searchbox-line">
 							<label class="checkbox">
 	<input class="checkbox-input" type="checkbox" name="disabledAccess">
 	<span class="checkbox-text">Disabled access</span>
@@ -149,7 +145,7 @@
 
 	<div class="js-popoverbody popover-popup" aria-hidden="true" tabindex="-1" aria-label="Use the ESC key to close">
 		<p class="popover-popup-title">
-			Info
+			Disabled access
 		</p>
 		<p class="popover-popup-body">
 			More information about this item...
@@ -157,19 +153,19 @@
 	</div>
 </div>
 						</li>
-						<li>
+						<li class="searchbox-line">
 							<label class="checkbox">
 	<input class="checkbox-input" type="checkbox" name="foreignCurrency">
 	<span class="checkbox-text">Foreign currency</span>
 </label>
 						</li>
-						<li>
+						<li class="searchbox-line">
 							<label class="checkbox">
 	<input class="checkbox-input" type="checkbox" name="internetBankingKiosk">
 	<span class="checkbox-text">Internet banking kiosk</span>
 </label>
 						</li>
-						<li>
+						<li class="searchbox-line">
 							<label class="checkbox">
 	<input class="checkbox-input" type="checkbox" name="nightSafe">
 	<span class="checkbox-text">Night safe</span>
@@ -181,7 +177,7 @@
 
 	<div class="js-popoverbody popover-popup" aria-hidden="true" tabindex="-1" aria-label="Use the ESC key to close">
 		<p class="popover-popup-title">
-			Info
+			Night safe
 		</p>
 		<p class="popover-popup-body">
 			More information about this item...
@@ -189,7 +185,7 @@
 	</div>
 </div>
 						</li>
-						<li>
+						<li class="searchbox-line">
 							<label class="checkbox">
 	<input class="checkbox-input" type="checkbox" name="openLatePensionThursdays">
 	<span class="checkbox-text">Open late pension Thursdays</span>
@@ -200,42 +196,42 @@
 			</div>
 		</div>
 		<div class="col-sm-5">
-			<ul>
-				<li>
+			<ul class="searchbox-moreoptions lists-unstyled">
+				<li class="searchbox-line">
 					Financial experts in branch
 				</li>
-				<li>
+				<li class="searchbox-line">
 					<label class="checkbox">
 	<input class="checkbox-input" type="checkbox" name="homeFinanceManager">
 	<span class="checkbox-text">Home finance manager</span>
 </label>
 				</li>
-				<li>
+				<li class="searchbox-line">
 					<label class="checkbox">
 	<input class="checkbox-input" type="checkbox" name="agribusinessBanker">
 	<span class="checkbox-text">Agribusiness banker</span>
 </label>
 				</li>
-				<li>
+				<li class="searchbox-line">
 					<label class="checkbox">
 	<input class="checkbox-input" type="checkbox" name="financialPlanner">
 	<span class="checkbox-text">Financial planner</span>
 </label>
 				</li>
-				<li>
+				<li class="searchbox-line">
 					<label class="checkbox">
 	<input class="checkbox-input" type="checkbox" name="businessBanker">
 	<span class="checkbox-text">Business banker</span>
 </label>
 				</li>
-				<li>
+				<li class="searchbox-line">
 					<label class="checkbox">
 	<input class="checkbox-input" type="checkbox" name="migrationServicesExpert">
 	<span class="checkbox-text">Migration services expert</span>
 </label>
 				</li>
-				<li>
-					<div class="input-field-select-wrapper">
+				<li class="searchbox-line">
+					<div class="input-field-select-wrapper searchbox-languages">
 						<select class="input-field-select" id="language" name="language">
 							<option value="Language spoken in branch">Language spoken in branch</option>
 							<option value="Afrikaans">Afrikaans</option>
@@ -287,7 +283,7 @@
 
 	<div class="js-popoverbody popover-popup" aria-hidden="true" tabindex="-1" aria-label="Use the ESC key to close">
 		<p class="popover-popup-title">
-			Info
+			Language spoken in branch
 		</p>
 		<p class="popover-popup-body">
 			More information about this item...
@@ -302,7 +298,11 @@
 		<div class="col-sm-7">
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-4">
-					<button class="btn btn-primary" type="submit">Search</button>
+					<div class="row">
+						<div class="col-sm-8">
+							<button class="btn btn-primary btn-block" type="submit">Search</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -314,17 +314,19 @@
 
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-	<div class="col-sm-8 searchresult">
-		<p class="searchresult-text">
-			Your nearest branch
+				<div class="row searchresult">
+	<div class="col-sm-7">
+		<p class="searchresult-filtertext">
+			Your closest branch is:
 		</p>
 	</div>
 
-	<div class="col-sm-4 text-right">
-		<button type="button" class="btn btn-neutral btn-soft">
+	<div class="col-sm-5 text-right">
+		<button type="button" class="searchresult-btn btn btn-neutral btn-soft">
 			<span class="btn-icon btn-icon-left icon icon-size-sm icon-map-pin" data-grunticon-embed></span>
-			<span class="btn-text">View on map</span>
+			<span class="btn-text">
+				View on map
+			</span>
 		</button>
 	</div>
 </div>
@@ -332,47 +334,60 @@
 
 <div class="row">
 	<div class="col-sm-12">
-		<ol class="result">
+		<ol class="result lists-unstyled">
 			<li class="result-item">
 				<div class="row listing">
-	<div class="col-sm-12" itemscope itemtype="http://schema.org/Corporation">
-		<h2 class="listing-name" itemprop="name">Liverpool</h2>
-		<p class="listing-type" itemprop="description">Branch/ATM</p>
-		<a class="listing-url" itemprop="url" href="#url">See more branch details</a>
+	<div class="col-sm-12 listing-row" itemscope itemtype="http://schema.org/Corporation">
+		<a class="listing-header" itemprop="url" href="#url">
+			<h2 class="body-font listing-header-name" itemprop="name">Liverpool</h2>
+			<p class="listing-header-type" itemprop="description">Branch/ATM</p>
+			<span class="listing-header-link">See more branch details</span>
+		</a>
 
-		<div class="directionbox panel">
-			<div class="directionbox-body panel-body">
-				<strong>5 min</strong> away by:
-				<ul>
-					<li>
-						<button type="button" class="btn btn-hero">
-							<span class="btn-icon btn-icon-left icon icon-size-sm icon-walk" data-grunticon-embed></span>
-						</button>
-					</li>
-					<li>
-						<button type="button" class="btn btn-hero btn-soft">
-							<span class="btn-icon btn-icon-left icon icon-size-sm icon-car" data-grunticon-embed></span>
-						</button>
-					</li>
-					<li>
-						<button type="button" class="btn btn-hero btn-soft">
-							<span class="btn-icon btn-icon-left icon icon-size-sm icon-transport" data-grunticon-embed></span>
-						</button>
-					</li>
-				</ul>
-			</div>
-			<div class="panel-footer">
-				<a class="directionbox-link" href="#url">
-					Map
-					<span class="hidden-xs">&amp; directions</span>
-				</a>
-			</div>
+		<div class="directionbox panel panel-faint">
+	<div class="directionbox-body panel-body text-right">
+		<strong>
+			<span class="directionbox-time">5</span>
+			min
+		</strong>
+		<span class="hidden-xs">away by:</span>
+
+		<div class="btn-group">
+			<label class="btn-group-item">
+				<input class="btn-group-input" type="radio" name="transport-type" checked>
+				<span class="btn-group-text btn btn-hero">
+					<span class="btn-icon btn-icon-left icon icon-size-sm icon-walk" data-grunticon-embed></span>
+				</span>
+			</label>
+
+			<label class="btn-group-item hidden-xs">
+				<input class="btn-group-input" type="radio" name="transport-type">
+				<span class="btn-group-text btn btn-hero">
+					<span class="btn-icon btn-icon-left icon icon-size-sm icon-car" data-grunticon-embed></span>
+				</span>
+			</label>
+
+			<label class="btn-group-item hidden-xs">
+				<input class="btn-group-input" type="radio" name="transport-type">
+				<span class="btn-group-text btn btn-hero">
+					<span class="btn-icon btn-icon-left icon icon-size-sm icon-transport" data-grunticon-embed></span>
+				</span>
+			</label>
 		</div>
 
-		<div class="row">
+	</div>
+	<div class="panel-footer text-right">
+		<a class="directionbox-link" href="#url">
+			Map
+			<span class="hidden-xs">&amp; directions</span>
+		</a>
+	</div>
+</div>
+
+		<div class="row listing-detail">
 			<div class="col-sm-4">
 				<div class="listing-address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-					<strong>Address</strong>
+					<strong class="hidden-xs">Address</strong>
 					<p>
 						<span itemprop="streetAddress">
 							Shop 1021 - 1022<br>
@@ -392,7 +407,35 @@
 			</div>
 
 			<div class="col-sm-4 hidden-xs">
-				<strong>At this branch</strong>
+				<strong class="hidden-xs">Opening hours</strong>
+				<dl class="hours">
+					<dt>Mon</dt>
+					<dd><strong>9.30am - 4pm</strong></dd>
+
+					<dt>Tue</dt>
+					<dd><strong>9.30am - 4pm</strong></dd>
+
+					<dt>Wed</dt>
+					<dd><strong>9.30am - 4pm</strong></dd>
+
+					<dt>Thur</dt>
+					<dd><strong>9.30am - 4pm</strong></dd>
+
+					<dt>Fri</dt>
+					<dd><strong>9.30am - 5pm</strong></dd>
+
+					<dt>Sat</dt>
+					<dd><strong>9.30am - 3pm</strong></dd>
+				</dl>
+
+				<p class="text-info">
+					Open until 4PM today
+				</p>
+
+			</div>
+
+			<div class="col-sm-4 hidden-xs">
+				<strong class="hidden-xs">At this branch</strong>
 				<ul class="lists lists-neutral">
 					<li>
 						Open Saturday
@@ -426,34 +469,6 @@
 					</li>
 				</ul>
 			</div>
-
-			<div class="col-sm-4 hidden-xs">
-				<strong>Opening hours</strong>
-				<dl class="listing-hours">
-					<dt>Mon</dt>
-					<dd>Mon 9.30am - 4pm</dd>
-
-					<dt>Tue</dt>
-					<dd>9.30am - 4pm</dd>
-
-					<dt>Wed</dt>
-					<dd>9.30am - 4pm</dd>
-
-					<dt>Thur</dt>
-					<dd>9.30am - 4pm</dd>
-
-					<dt>Fri</dt>
-					<dd>9.30am - 5pm</dd>
-
-					<dt>Sat</dt>
-					<dd>9.30am - 3pm</dd>
-				</dl>
-
-				<p class="text-info">
-					Open until 4PM today
-				</p>
-
-			</div>
 		</div>
 
 	</div>
@@ -466,14 +481,14 @@
 
 <div class="row">
 	<div class="col-sm-6">
-		<button type="button" class="btn btn-hero btn-soft">
+		<button type="button" class="btn btn-hero btn-soft btn-block">
 			<span class="btn-icon btn-icon-left icon icon-size-sm icon-search" data-grunticon-embed></span>
 			<span class="btn-text">Search again</span>
 		</button>
 	</div>
 
 	<div class="col-sm-6 text-right">
-		<button type="button" class="btn btn-hero btn-soft">
+		<button type="button" class="btn btn-hero btn-soft btn-block">
 			Show more results
 		</button>
 	</div>

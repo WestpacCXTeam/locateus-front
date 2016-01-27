@@ -1,24 +1,24 @@
-<form class="searchbox well">
+<form class="searchbox well well-responsive">
 	<div class="row">
 		<div class="col-sm-7">
-			<div class="row">
+			<div class="row searchbox-line">
 				<div class="col-sm-4">
 					<label class="searchbox-label" for="where">Where</label>
 				</div>
 				<div class="col-sm-8 searchbox-input-wrapper">
 					<input class="searchbox-input input-field" id="where" name="where" type="text" placeholder="Suburb, postcode, address or BSB">
-					<button class="searchbox-iconbtn btn btn-link" type="button" type="button">
+					<button class="searchbox-iconbtn btn btn-link" type="button">
 						<span class="icon icon-size-sm icon-geolocation"></span>
 					</button>
 				</div>
 			</div>
 
-			<div class="row">
+			<div class="row searchbox-line">
 				<div class="col-sm-4">
 					<label class="searchbox-label" for="find">Find</label>
 				</div>
 				<div class="col-sm-8">
-					<div class="input-field-select-wrapper">
+					<div class="input-field-select-wrapper searchbox-find">
 						<select class="input-field-select" id="find" name="find">
 							<option value="Branches">Branches</option>
 							<option value="ATMs">ATMs</option>
@@ -30,8 +30,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-5">
-			<p class="lead">
+		<div class="col-sm-4">
+			<p class="lead hidden-xs">
 				Looking for a branch, ATM, after-hours coin deposit or just some expert advice? You can search by address, suburb, postcode or BSB.
 			</p>
 		</div>
@@ -39,43 +39,39 @@
 
 	<div class="row">
 		<div class="col-sm-7">
-			<div class="row">
-				<div class="col-sm-8 col-sm-offset-4">
+			<div class="row searchbox-line">
+				<div class="col-sm-12 col-sm-offset-4">
 					@@include('module/checkbox.html', {"text": "Open Saturdays", "name": "openSaturdays"})
-					<button class="searchbox-optionsbtn btn btn-link" type="button">
-						<span class="searchbox-optionsbtn-more">More</span>
-						<span class="searchbox-optionsbtn-more">Less</span>
-						options
-					</button>
+					<a href="#searchbox-options" class="searchbox-optionsbtn link-more@@class">@@text options</a>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="row">
+	<div id="searchbox-options" class="row"@@style>
 		<div class="col-sm-7">
 			<div class="row">
-				<div class="col-sm-5 col-sm-offset-4">
-					<ul>
-						<li>
+				<div class="col-sm-8 col-sm-offset-4">
+					<ul class="searchbox-moreoptions lists-unstyled">
+						<li class="searchbox-line">
 							@@include('module/checkbox.html', {"text": "Safe deposit box", "name": "safeDepositBox"})
-							@@include('module/help.html', {"text": "More information about this item"})
+							@@include('module/help.html', {"title": "Safe deposit box", "text": "More information about this item..."})
 						</li>
-						<li>
+						<li class="searchbox-line">
 							@@include('module/checkbox.html', {"text": "Disabled access", "name": "disabledAccess"})
-							@@include('module/help.html', {"text": "More information about this item..."})
+							@@include('module/help.html', {"title": "Disabled access", "text": "More information about this item..."})
 						</li>
-						<li>
+						<li class="searchbox-line">
 							@@include('module/checkbox.html', {"text": "Foreign currency", "name": "foreignCurrency"})
 						</li>
-						<li>
+						<li class="searchbox-line">
 							@@include('module/checkbox.html', {"text": "Internet banking kiosk", "name": "internetBankingKiosk"})
 						</li>
-						<li>
+						<li class="searchbox-line">
 							@@include('module/checkbox.html', {"text": "Night safe", "name": "nightSafe"})
-							@@include('module/help.html', {"text": "More information about this item..."})
+							@@include('module/help.html', {"title": "Night safe", "text": "More information about this item..."})
 						</li>
-						<li>
+						<li class="searchbox-line">
 							@@include('module/checkbox.html', {"text": "Open late pension Thursdays", "name": "openLatePensionThursdays"})
 						</li>
 					</ul>
@@ -83,27 +79,27 @@
 			</div>
 		</div>
 		<div class="col-sm-5">
-			<ul>
-				<li>
+			<ul class="searchbox-moreoptions lists-unstyled">
+				<li class="searchbox-line">
 					Financial experts in branch
 				</li>
-				<li>
+				<li class="searchbox-line">
 					@@include('module/checkbox.html', {"text": "Home finance manager", "name": "homeFinanceManager"})
 				</li>
-				<li>
+				<li class="searchbox-line">
 					@@include('module/checkbox.html', {"text": "Agribusiness banker", "name": "agribusinessBanker"})
 				</li>
-				<li>
+				<li class="searchbox-line">
 					@@include('module/checkbox.html', {"text": "Financial planner", "name": "financialPlanner"})
 				</li>
-				<li>
+				<li class="searchbox-line">
 					@@include('module/checkbox.html', {"text": "Business banker", "name": "businessBanker"})
 				</li>
-				<li>
+				<li class="searchbox-line">
 					@@include('module/checkbox.html', {"text": "Migration services expert", "name": "migrationServicesExpert"})
 				</li>
-				<li>
-					<div class="input-field-select-wrapper">
+				<li class="searchbox-line">
+					<div class="input-field-select-wrapper searchbox-languages">
 						<select class="input-field-select" id="language" name="language">
 							<option value="Language spoken in branch">Language spoken in branch</option>
 							<option value="Afrikaans">Afrikaans</option>
@@ -148,7 +144,7 @@
 							<option value="Vietnamese">Vietnamese</option>
 						</select>
 					</div>
-					@@include('module/help.html', {"text": "More information about this item..."})
+					@@include('module/help.html', {"title": "Language spoken in branch", "text": "More information about this item..."})
 				</li>
 			</ul>
 		</div>
@@ -157,7 +153,11 @@
 		<div class="col-sm-7">
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-4">
-					<button class="btn btn-primary" type="submit">Search</button>
+					<div class="row">
+						<div class="col-sm-8">
+							<button class="btn btn-primary btn-block" type="submit">Search</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

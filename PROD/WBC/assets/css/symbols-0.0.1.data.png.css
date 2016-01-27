@@ -1,5 +1,5 @@
 .link-more:after,
-.svg-arrow { background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAMCAYAAACulacQAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAFxJREFUGJVj0DW3bdA1t21gwAKYIBRjPTYFzK+ePjogLiPHyMDAWC8uI8f46umjA3BJBgYGBlwKmGGqsClgRrYDXQETNldiBRBv2f3HcDkVJRjgIfS/8fLJwxiSAEmENIi1P5+FAAAAAElFTkSuQmCC'); background-repeat: no-repeat; }
+.svg-arrow { background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAHCAYAAAA8sqwkAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAGxJREFUGJV9kLENgDAMBM9kiDQoG1BTMVvCZkFUqbMBEk2WgAJFIENwZ+veOr0M4xQAcloDP1O57lrF10MbFg9gyr5F2zsB8bZ3UvYtfsPHnNMaDEArpGEAaX2rqk/4FdC+GgYwOnDrsXw1dwJzZTnhPKwL3AAAAABJRU5ErkJggg=='); background-repeat: no-repeat; }
 
 
 .checkbox-input:disabled + .checkbox-text:after,

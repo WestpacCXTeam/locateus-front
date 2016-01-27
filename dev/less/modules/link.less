@@ -1,0 +1,17 @@
+/* link stylings */
+
+.link-more {
+	&:after {
+		content: ' ';
+		display: inline-block;
+		width: 7px;
+		height: 12px;
+		margin-left: 6px;
+		margin-bottom: -2px;
+		transition: transform 0.3s ease;
+
+		.is-open& {
+			transform: rotate(180deg);
+		}
+	}
+}

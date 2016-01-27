@@ -1,42 +1,17 @@
 <div class="row listing">
-	<div class="col-sm-12" itemscope itemtype="http://schema.org/Corporation">
-		<h2 class="listing-name" itemprop="name">Liverpool</h2>
-		<p class="listing-type" itemprop="description">Branch/ATM</p>
-		<a class="listing-url" itemprop="url" href="#url">See more branch details</a>
+	<div class="col-sm-12 listing-row" itemscope itemtype="http://schema.org/Corporation">
+		<a class="listing-header" itemprop="url" href="#url">
+			<h2 class="body-font listing-header-name" itemprop="name">Liverpool</h2>
+			<p class="listing-header-type" itemprop="description">Branch/ATM</p>
+			<span class="listing-header-link">See more branch details</span>
+		</a>
 
-		<div class="directionbox panel">
-			<div class="directionbox-body panel-body">
-				<strong>5 min</strong> away by:
-				<ul>
-					<li>
-						<button type="button" class="btn btn-hero">
-							<span class="btn-icon btn-icon-left icon icon-size-sm icon-walk" data-grunticon-embed></span>
-						</button>
-					</li>
-					<li>
-						<button type="button" class="btn btn-hero btn-soft">
-							<span class="btn-icon btn-icon-left icon icon-size-sm icon-car" data-grunticon-embed></span>
-						</button>
-					</li>
-					<li>
-						<button type="button" class="btn btn-hero btn-soft">
-							<span class="btn-icon btn-icon-left icon icon-size-sm icon-transport" data-grunticon-embed></span>
-						</button>
-					</li>
-				</ul>
-			</div>
-			<div class="panel-footer">
-				<a class="directionbox-link" href="#url">
-					Map
-					<span class="hidden-xs">&amp; directions</span>
-				</a>
-			</div>
-		</div>
+		@@include('module/directionbox.html')
 
-		<div class="row">
+		<div class="row listing-detail">
 			<div class="col-sm-4">
 				<div class="listing-address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-					<strong>Address</strong>
+					<strong class="hidden-xs">Address</strong>
 					<p>
 						<span itemprop="streetAddress">
 							Shop 1021 - 1022<br>
@@ -56,7 +31,35 @@
 			</div>
 
 			<div class="col-sm-4 hidden-xs">
-				<strong>At this branch</strong>
+				<strong class="hidden-xs">Opening hours</strong>
+				<dl class="hours">
+					<dt>Mon</dt>
+					<dd><strong>9.30am - 4pm</strong></dd>
+
+					<dt>Tue</dt>
+					<dd><strong>9.30am - 4pm</strong></dd>
+
+					<dt>Wed</dt>
+					<dd><strong>9.30am - 4pm</strong></dd>
+
+					<dt>Thur</dt>
+					<dd><strong>9.30am - 4pm</strong></dd>
+
+					<dt>Fri</dt>
+					<dd><strong>9.30am - 5pm</strong></dd>
+
+					<dt>Sat</dt>
+					<dd><strong>9.30am - 3pm</strong></dd>
+				</dl>
+
+				<p class="text-info">
+					Open until 4PM today
+				</p>
+
+			</div>
+
+			<div class="col-sm-4 hidden-xs">
+				<strong class="hidden-xs">At this branch</strong>
 				<ul class="lists lists-neutral">
 					<li>
 						Open Saturday
@@ -90,34 +93,6 @@
 					</li>
 				</ul>
 			</div>
-
-			<div class="col-sm-4 hidden-xs">
-				<strong>Opening hours</strong>
-				<dl class="listing-hours">
-					<dt>Mon</dt>
-					<dd>Mon 9.30am - 4pm</dd>
-
-					<dt>Tue</dt>
-					<dd>9.30am - 4pm</dd>
-
-					<dt>Wed</dt>
-					<dd>9.30am - 4pm</dd>
-
-					<dt>Thur</dt>
-					<dd>9.30am - 4pm</dd>
-
-					<dt>Fri</dt>
-					<dd>9.30am - 5pm</dd>
-
-					<dt>Sat</dt>
-					<dd>9.30am - 3pm</dd>
-				</dl>
-
-				<p class="text-info">
-					Open until 4PM today
-				</p>
-
-			</div>
 		</div>
 
 		<div class="row">
@@ -125,8 +100,11 @@
 
 				<div class="alert alert-info" role="alert">
 					<span class="alert-icon icon icon-size-md icon-info" data-grunticon-embed></span>
-					Moorebank Branch is temporarily closed
-					<span class="hidden-xs">- This branch is being renovated and will be closed until the 30th December 2014.</span>
+
+					<div class="alert-body">
+						Moorebank Branch is temporarily closed
+						<span class="hidden-xs">- This branch is being renovated and will be closed until the 30th December 2014.</span>
+					</div>
 				</div>
 
 			</div>

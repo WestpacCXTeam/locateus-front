@@ -548,6 +548,9 @@ module.exports = function(grunt) {
 				cssprefix: '.svg-',
 				enhanceSVG: true,
 				pngpath: '../img',
+				customselectors: {
+					'arrow': ['.link-more:after'],
+				},
 			},
 
 			BOM: {

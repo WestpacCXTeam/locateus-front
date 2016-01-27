@@ -1,0 +1,30 @@
+/* directionbox stylings */
+
+.directionbox {
+	float: right;
+
+	.directionbox-time {
+		display: inline-block;
+		min-width: 29px;
+	}
+
+	.btn-group {
+		margin-left: 6px;
+
+		.btn-group-item:first-child .btn {
+			border-top-right-radius: 6px;
+			border-bottom-right-radius: 6px;
+			border-right: 1px solid @color-B;
+
+			@media (min-width: @screen-sm) {
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+				border-right: 0 none;
+			}
+		}
+	}
+
+	.btn-group-text {
+		min-width: 50px;
+	}
+}

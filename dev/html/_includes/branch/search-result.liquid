@@ -1,0 +1,48 @@
+<div class="row searchresult">
+	<div class="col-sm-9">
+		<p class="searchresult-filtertext">
+			Results for <strong>Branches</strong> in or near <strong>Liverpool</strong>
+		</p>
+
+		<span class="sr-only">This search uses the following filter:</span>
+		<ul class="searchresult-filters lists-unstyled clearfix">
+			<li class="searchresult-filters-item">
+				{% include module/pill.liquid  label = "Open Saturday" %}
+			</li>
+			<li class="searchresult-filters-item">
+				{% include module/pill.liquid  label = "ATM in branch" %}
+			</li>
+		</ul>
+	</div>
+
+	<div class="col-sm-3 text-right">
+		<button type="button" class="searchresult-btn btn btn-hero btn-soft">
+			<span class="btn-icon btn-icon-left icon icon-size-sm icon-map-pin" data-grunticon-embed></span>
+			<span class="btn-text">View on map</span>
+		</button>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<ol class="result lists-unstyled">
+			<li class="result-item">
+				{% include branch/listing.liquid %}
+			</li>
+			<li class="result-item">
+				{% include branch/listing-warning.liquid %}
+			</li>
+			<li class="result-item">
+				{% include branch/listing.liquid %}
+			</li>
+			<li class="result-item">
+				{% include branch/listing.liquid %}
+			</li>
+			<li class="result-item">
+				{% include branch/listing.liquid %}
+			</li>
+		</ol>
+	</div>
+</div>
+
+{% include module/search-bottom.liquid %}

@@ -1,0 +1,38 @@
+<div class="row searchresult">
+	<div class="col-sm-9">
+		<p class="searchresult-filtertext">
+			Results for <strong>Cash Exchange Machines</strong> in or near <strong>Liverpool</strong>
+		</p>
+	</div>
+
+	<div class="col-sm-3 text-right">
+		<button type="button" class="searchresult-btn btn btn-hero btn-soft">
+			<span class="btn-icon btn-icon-left icon icon-size-sm icon-map-pin" data-grunticon-embed></span>
+			<span class="btn-text">View on map</span>
+		</button>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<ol class="result lists-unstyled">
+			<li class="result-item">
+				{% include cashmachines/listing-warning.liquid %}
+			</li>
+			<li class="result-item">
+				{% include cashmachines/listing.liquid %}
+			</li>
+			<li class="result-item">
+				{% include cashmachines/listing-warning.liquid %}
+			</li>
+			<li class="result-item">
+				{% include cashmachines/listing-warning.liquid %}
+			</li>
+			<li class="result-item">
+				{% include cashmachines/listing-warning.liquid %}
+			</li>
+		</ol>
+	</div>
+</div>
+
+{% include module/search-bottom.liquid %}

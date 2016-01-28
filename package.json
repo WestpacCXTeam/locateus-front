@@ -13,7 +13,7 @@
 		"grunt-contrib-watch": "^0.6.1",
 		"grunt-font": "0.0.9",
 		"grunt-grunticon": "^2.2.0",
-		"grunt-include-replace": "^3.2.0",
+		"grunt-jekyll": "^0.4.3",
 		"grunt-text-replace": "^0.4.0",
 		"grunt-wakeup": "0.1.1",
 		"less-plugin-autoprefix": "^1.4.2",

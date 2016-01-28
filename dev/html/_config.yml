@@ -1,0 +1,4 @@
+name: "Locate Us"
+
+permalink: none
+exclude: ["node_modules/"]

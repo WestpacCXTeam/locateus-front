@@ -25,7 +25,12 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Custom functions
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+function getRandom() {
+	var rand = Math.random().toString(36).slice(2);
+	console.log('Generating new ID: ' + rand);
 
+	return rand;
+}
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -69,7 +74,6 @@ module.exports = function(grunt) {
 	// Dependencies
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	grunt.loadNpmTasks('grunt-contrib-connect');
-	grunt.loadNpmTasks('grunt-include-replace');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -78,6 +82,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-text-replace');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-grunticon');
+	grunt.loadNpmTasks('grunt-jekyll');
 	grunt.loadNpmTasks('grunt-wakeup');
 	grunt.loadNpmTasks('grunt-font');
 	require('time-grunt')(grunt);
@@ -94,6 +99,7 @@ module.exports = function(grunt) {
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		SETTINGS: SETTINGS(),
 		pkg: grunt.file.readJSON( SETTINGS().folder.Packagejson ),
+		num: 0,
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -135,7 +141,7 @@ module.exports = function(grunt) {
 			//////////////////////////// DEBUG ON
 			devBOM: {
 				src: [
-					'<%= SETTINGS.folder.temp %>/BOM/**/*.html',
+					'<%= SETTINGS.folder.temp %>/BOM/**/*.liquid',
 					'<%= SETTINGS.folder.temp %>/BOM/**/*.less',
 					'<%= SETTINGS.folder.temp %>/BOM/**/*.js',
 				],
@@ -157,12 +163,17 @@ module.exports = function(grunt) {
 						from: '[-Debug-]',
 						to: '[Debug]',
 					},
+					// {
+					// 	from: '[Random]',
+					// 	to: getRandom(),
+					// },
 				],
 			},
 
 			devBSA: {
 				src: [
-					'<%= SETTINGS.folder.temp %>/BSA/**/*.html',
+					'<%= SETTINGS.folder.temp %>/BSA/**/*.liquid',
+					'<%= SETTINGS.folder.temp %>/BSA/**/*.md',
 					'<%= SETTINGS.folder.temp %>/BSA/**/*.less',
 					'<%= SETTINGS.folder.temp %>/BSA/**/*.js',
 				],
@@ -184,12 +195,17 @@ module.exports = function(grunt) {
 						from: '[-Debug-]',
 						to: '[Debug]',
 					},
+					// {
+					// 	from: '[Random]',
+					// 	to: getRandom(),
+					// },
 				],
 			},
 
 			devSTG: {
 				src: [
-					'<%= SETTINGS.folder.temp %>/STG/**/*.html',
+					'<%= SETTINGS.folder.temp %>/STG/**/*.liquid',
+					'<%= SETTINGS.folder.temp %>/STG/**/*.md',
 					'<%= SETTINGS.folder.temp %>/STG/**/*.less',
 					'<%= SETTINGS.folder.temp %>/STG/**/*.js',
 				],
@@ -211,12 +227,17 @@ module.exports = function(grunt) {
 						from: '[-Debug-]',
 						to: '[Debug]',
 					},
+					// {
+					// 	from: '[Random]',
+					// 	to: getRandom(),
+					// },
 				],
 			},
 
 			devWBC: {
 				src: [
-					'<%= SETTINGS.folder.temp %>/WBC/**/*.html',
+					'<%= SETTINGS.folder.temp %>/WBC/**/*.liquid',
+					'<%= SETTINGS.folder.temp %>/WBC/**/*.md',
 					'<%= SETTINGS.folder.temp %>/WBC/**/*.less',
 					'<%= SETTINGS.folder.temp %>/WBC/**/*.js',
 				],
@@ -238,6 +259,10 @@ module.exports = function(grunt) {
 						from: '[-Debug-]',
 						to: '[Debug]',
 					},
+					// {
+					// 	from: '[Random]',
+					// 	to: getRandom(),
+					// },
 				],
 			},
 
@@ -245,7 +270,8 @@ module.exports = function(grunt) {
 			//////////////////////////// DEBUG OFF
 			prodBOM: {
 				src: [
-					'<%= SETTINGS.folder.temp %>/BOM/**/*.html',
+					'<%= SETTINGS.folder.temp %>/BOM/**/*.liquid',
+					'<%= SETTINGS.folder.temp %>/BOM/**/*.md',
 					'<%= SETTINGS.folder.temp %>/BOM/**/*.less',
 					'<%= SETTINGS.folder.temp %>/BOM/**/*.js',
 				],
@@ -267,12 +293,17 @@ module.exports = function(grunt) {
 						from: '[-Debug-]',
 						to: '[Debug]',
 					},
+					// {
+					// 	from: '[Random]',
+					// 	to: getRandom(),
+					// },
 				],
 			},
 
 			prodBSA: {
 				src: [
-					'<%= SETTINGS.folder.temp %>/BSA/**/*.html',
+					'<%= SETTINGS.folder.temp %>/BSA/**/*.liquid',
+					'<%= SETTINGS.folder.temp %>/BSA/**/*.md',
 					'<%= SETTINGS.folder.temp %>/BSA/**/*.less',
 					'<%= SETTINGS.folder.temp %>/BSA/**/*.js',
 				],
@@ -294,12 +325,17 @@ module.exports = function(grunt) {
 						from: '[-Debug-]',
 						to: '[Debug]',
 					},
+					// {
+					// 	from: '[Random]',
+					// 	to: getRandom(),
+					// },
 				],
 			},
 
 			prodSTG: {
 				src: [
-					'<%= SETTINGS.folder.temp %>/STG/**/*.html',
+					'<%= SETTINGS.folder.temp %>/STG/**/*.liquid',
+					'<%= SETTINGS.folder.temp %>/STG/**/*.md',
 					'<%= SETTINGS.folder.temp %>/STG/**/*.less',
 					'<%= SETTINGS.folder.temp %>/STG/**/*.js',
 				],
@@ -321,12 +357,17 @@ module.exports = function(grunt) {
 						from: '[-Debug-]',
 						to: '[Debug]',
 					},
+					// {
+					// 	from: '[Random]',
+					// 	to: getRandom(),
+					// },
 				],
 			},
 
 			prodWBC: {
 				src: [
-					'<%= SETTINGS.folder.temp %>/WBC/**/*.html',
+					'<%= SETTINGS.folder.temp %>/WBC/**/*.liquid',
+					'<%= SETTINGS.folder.temp %>/WBC/**/*.md',
 					'<%= SETTINGS.folder.temp %>/WBC/**/*.less',
 					'<%= SETTINGS.folder.temp %>/WBC/**/*.js',
 				],
@@ -348,6 +389,10 @@ module.exports = function(grunt) {
 						from: '[-Debug-]',
 						to: '[Debug]',
 					},
+					// {
+					// 	from: '[Random]',
+					// 	to: getRandom(),
+					// },
 				],
 			},
 		},
@@ -366,13 +411,13 @@ module.exports = function(grunt) {
 					plugins : [ new (require('less-plugin-autoprefix'))({ browsers: [ 'last 2 versions', 'ie 8', 'ie 9', 'ie 10' ] }) ],
 				},
 				files: {
-					'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[0] %>/assets/css/site-<%= pkg.version %>.min.css':
+					'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[0] %>/HTML/assets/css/site-<%= pkg.version %>.min.css':
 						'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[0] %>/less/theme.less',
-					'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[1] %>/assets/css/site-<%= pkg.version %>.min.css':
+					'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[1] %>/HTML/assets/css/site-<%= pkg.version %>.min.css':
 						'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[1] %>/less/theme.less',
-					'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[2] %>/assets/css/site-<%= pkg.version %>.min.css':
+					'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[2] %>/HTML/assets/css/site-<%= pkg.version %>.min.css':
 						'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[2] %>/less/theme.less',
-					'<%= SETTINGS.folder.prod %>/<%= SETTINGS.brands[3] %>/assets/css/site-<%= pkg.version %>.min.css':
+					'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[3] %>/HTML/assets/css/site-<%= pkg.version %>.min.css':
 						'<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[3] %>/less/theme.less',
 				},
 			},
@@ -385,15 +430,15 @@ module.exports = function(grunt) {
 		concat: {
 			grunticonBOM: {
 				files: {
-					'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
+					'<%= SETTINGS.folder.temp %>/BOM/HTML/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
 						'<%= SETTINGS.folder.temp %>/BOM/grunticon/svg.css',
 						'<%= SETTINGS.folder.css %>/BOM/symbols.data.svg.css',
 					],
-					'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.data.png.css': [
+					'<%= SETTINGS.folder.temp %>/BOM/HTML/assets/css/symbols-<%= pkg.version %>.data.png.css': [
 						'<%= SETTINGS.folder.temp %>/BOM/grunticon/png.css',
 						'<%= SETTINGS.folder.css %>/BOM/symbols.data.png.css',
 					],
-					'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.fallback.css': [
+					'<%= SETTINGS.folder.temp %>/BOM/HTML/assets/css/symbols-<%= pkg.version %>.fallback.css': [
 						'<%= SETTINGS.folder.temp %>/BOM/grunticon/fallback.css',
 						'<%= SETTINGS.folder.css %>/BOM/symbols.fallback.css',
 					],
@@ -402,15 +447,15 @@ module.exports = function(grunt) {
 
 			grunticonBSA: {
 				files: {
-					'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
+					'<%= SETTINGS.folder.temp %>/BSA/HTML/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
 						'<%= SETTINGS.folder.temp %>/BSA/grunticon/svg.css',
 						'<%= SETTINGS.folder.css %>/BSA/symbols.data.svg.css',
 					],
-					'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.data.png.css': [
+					'<%= SETTINGS.folder.temp %>/BSA/HTML/assets/css/symbols-<%= pkg.version %>.data.png.css': [
 						'<%= SETTINGS.folder.temp %>/BSA/grunticon/png.css',
 						'<%= SETTINGS.folder.css %>/BSA/symbols.data.png.css',
 					],
-					'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.fallback.css': [
+					'<%= SETTINGS.folder.temp %>/BSA/HTML/assets/css/symbols-<%= pkg.version %>.fallback.css': [
 						'<%= SETTINGS.folder.temp %>/BSA/grunticon/fallback.css',
 						'<%= SETTINGS.folder.css %>/BSA/symbols.fallback.css',
 					],
@@ -419,15 +464,15 @@ module.exports = function(grunt) {
 
 			grunticonSTG: {
 				files: {
-					'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
+					'<%= SETTINGS.folder.temp %>/STG/HTML/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
 						'<%= SETTINGS.folder.temp %>/STG/grunticon/svg.css',
 						'<%= SETTINGS.folder.css %>/STG/symbols.data.svg.css',
 					],
-					'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.data.png.css': [
+					'<%= SETTINGS.folder.temp %>/STG/HTML/assets/css/symbols-<%= pkg.version %>.data.png.css': [
 						'<%= SETTINGS.folder.temp %>/STG/grunticon/png.css',
 						'<%= SETTINGS.folder.css %>/STG/symbols.data.png.css',
 					],
-					'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.fallback.css': [
+					'<%= SETTINGS.folder.temp %>/STG/HTML/assets/css/symbols-<%= pkg.version %>.fallback.css': [
 						'<%= SETTINGS.folder.temp %>/STG/grunticon/fallback.css',
 						'<%= SETTINGS.folder.css %>/STG/symbols.fallback.css',
 					],
@@ -436,15 +481,15 @@ module.exports = function(grunt) {
 
 			grunticonWBC: {
 				files: {
-					'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
+					'<%= SETTINGS.folder.temp %>/WBC/HTML/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
 						'<%= SETTINGS.folder.temp %>/WBC/grunticon/svg.css',
 						'<%= SETTINGS.folder.css %>/WBC/symbols.data.svg.css',
 					],
-					'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.data.png.css': [
+					'<%= SETTINGS.folder.temp %>/WBC/HTML/assets/css/symbols-<%= pkg.version %>.data.png.css': [
 						'<%= SETTINGS.folder.temp %>/WBC/grunticon/png.css',
 						'<%= SETTINGS.folder.css %>/WBC/symbols.data.png.css',
 					],
-					'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.fallback.css': [
+					'<%= SETTINGS.folder.temp %>/WBC/HTML/assets/css/symbols-<%= pkg.version %>.fallback.css': [
 						'<%= SETTINGS.folder.temp %>/WBC/grunticon/fallback.css',
 						'<%= SETTINGS.folder.css %>/WBC/symbols.fallback.css',
 					],
@@ -453,7 +498,7 @@ module.exports = function(grunt) {
 
 			jsBOM: {
 				files: {
-					'<%= SETTINGS.folder.prod %>/BOM/assets/js/site-<%= pkg.version %>.min.js': [
+					'<%= SETTINGS.folder.temp %>/BOM/HTML/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/lib/**/*.js',
 						'<%= SETTINGS.folder.temp %>/BOM/js/uglified.js',
 					],
@@ -462,7 +507,7 @@ module.exports = function(grunt) {
 
 			jsBSA: {
 				files: {
-					'<%= SETTINGS.folder.prod %>/BSA/assets/js/site-<%= pkg.version %>.min.js': [
+					'<%= SETTINGS.folder.temp %>/BSA/HTML/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/lib/**/*.js',
 						'<%= SETTINGS.folder.temp %>/BSA/js/uglified.js',
 					],
@@ -471,7 +516,7 @@ module.exports = function(grunt) {
 
 			jsSTG: {
 				files: {
-					'<%= SETTINGS.folder.prod %>/STG/assets/js/site-<%= pkg.version %>.min.js': [
+					'<%= SETTINGS.folder.temp %>/STG/HTML/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/lib/**/*.js',
 						'<%= SETTINGS.folder.temp %>/STG/js/uglified.js',
 					],
@@ -480,7 +525,7 @@ module.exports = function(grunt) {
 
 			jsWBC: {
 				files: {
-					'<%= SETTINGS.folder.prod %>/WBC/assets/js/site-<%= pkg.version %>.min.js': [
+					'<%= SETTINGS.folder.temp %>/WBC/HTML/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/lib/**/*.js',
 						'<%= SETTINGS.folder.temp %>/WBC/js/uglified.js',
 					],
@@ -604,63 +649,39 @@ module.exports = function(grunt) {
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// Includes task
+		// JEKYLL
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		includereplace: {
+		jekyll: {
 			BOM: {
 				options: {
-					includesDir: '<%= SETTINGS.folder.temp %>/BOM/html/_includes/',
+					src : '<%= SETTINGS.folder.temp %>/BOM/html/',
+					config: '<%= SETTINGS.folder.temp %>/BOM/html/_config.yml',
+					dest: '<%= SETTINGS.folder.prod %>/BOM/',
 				},
-				cwd: '<%= SETTINGS.folder.temp %>/BOM/html/',
-				src: [
-					'**/*.html',
-					'!_includes/**/*.html',
-				],
-				dest: '<%= SETTINGS.folder.prod %>/BOM/',
-				expand: true,
-				flatten: false,
 			},
 
 			BSA: {
 				options: {
-					includesDir: '<%= SETTINGS.folder.temp %>/BSA/html/_includes/',
+					src : '<%= SETTINGS.folder.temp %>/BSA/html/',
+					config: '<%= SETTINGS.folder.temp %>/BSA/html/_config.yml',
+					dest: '<%= SETTINGS.folder.prod %>/BSA/',
 				},
-				cwd: '<%= SETTINGS.folder.temp %>/BSA/html/',
-				src: [
-					'**/*.html',
-					'!_includes/**/*.html',
-				],
-				dest: '<%= SETTINGS.folder.prod %>/BSA/',
-				expand: true,
-				flatten: false,
 			},
 
 			STG: {
 				options: {
-					includesDir: '<%= SETTINGS.folder.temp %>/STG/html/_includes/',
+					src : '<%= SETTINGS.folder.temp %>/STG/html/',
+					config: '<%= SETTINGS.folder.temp %>/STG/html/_config.yml',
+					dest: '<%= SETTINGS.folder.prod %>/STG/',
 				},
-				cwd: '<%= SETTINGS.folder.temp %>/STG/html/',
-				src: [
-					'**/*.html',
-					'!_includes/**/*.html',
-				],
-				dest: '<%= SETTINGS.folder.prod %>/STG/',
-				expand: true,
-				flatten: false,
 			},
 
 			WBC: {
 				options: {
-					includesDir: '<%= SETTINGS.folder.temp %>/WBC/html/_includes/',
+					src : '<%= SETTINGS.folder.temp %>/WBC/html/',
+					config: '<%= SETTINGS.folder.temp %>/WBC/html/_config.yml',
+					dest: '<%= SETTINGS.folder.prod %>/WBC/',
 				},
-				cwd: '<%= SETTINGS.folder.temp %>/WBC/html/',
-				src: [
-					'**/*.html',
-					'!_includes/**/*.html',
-				],
-				dest: '<%= SETTINGS.folder.prod %>/WBC/',
-				expand: true,
-				flatten: false,
 			},
 		},
 
@@ -672,9 +693,12 @@ module.exports = function(grunt) {
 			moveTempBOM: {
 				files: [{
 					src: [
-						'**/*.html',
+						'**/*.liquid',
 						'**/*.less',
 						'**/*.js',
+						'**/*.yml',
+						'**/*.md',
+						'**/*.html',
 					],
 					cwd: '<%= SETTINGS.folder.dev %>',
 					dest: '<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[0] %>',
@@ -686,9 +710,12 @@ module.exports = function(grunt) {
 			moveTempBSA: {
 				files: [{
 					src: [
-						'**/*.html',
+						'**/*.liquid',
 						'**/*.less',
 						'**/*.js',
+						'**/*.yml',
+						'**/*.md',
+						'**/*.html',
 					],
 					cwd: '<%= SETTINGS.folder.dev %>',
 					dest: '<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[1] %>',
@@ -700,9 +727,12 @@ module.exports = function(grunt) {
 			moveTempSTG: {
 				files: [{
 					src: [
-						'**/*.html',
+						'**/*.liquid',
 						'**/*.less',
 						'**/*.js',
+						'**/*.yml',
+						'**/*.md',
+						'**/*.html',
 					],
 					cwd: '<%= SETTINGS.folder.dev %>',
 					dest: '<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[2] %>',
@@ -714,9 +744,12 @@ module.exports = function(grunt) {
 			moveTempWBC: {
 				files: [{
 					src: [
-						'**/*.html',
+						'**/*.liquid',
 						'**/*.less',
 						'**/*.js',
+						'**/*.yml',
+						'**/*.md',
+						'**/*.html',
 					],
 					cwd: '<%= SETTINGS.folder.dev %>',
 					dest: '<%= SETTINGS.folder.temp %>/<%= SETTINGS.brands[3] %>',
@@ -730,7 +763,7 @@ module.exports = function(grunt) {
 				files: [{
 					src: ['**/*.png'],
 					cwd: '<%= SETTINGS.folder.temp %>/BOM/grunticon/png/',
-					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/img/',
+					dest: '<%= SETTINGS.folder.temp %>/BOM/HTML/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -739,7 +772,7 @@ module.exports = function(grunt) {
 				files: [{
 					src: ['**/*.png'],
 					cwd: '<%= SETTINGS.folder.dev %>/img/BOM/',
-					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/img/',
+					dest: '<%= SETTINGS.folder.temp %>/BOM/HTML/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -749,7 +782,7 @@ module.exports = function(grunt) {
 				files: [{
 					src: ['**/*.png'],
 					cwd: '<%= SETTINGS.folder.temp %>/BSA/grunticon/png/',
-					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/img/',
+					dest: '<%= SETTINGS.folder.temp %>/BSA/HTML/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -758,7 +791,7 @@ module.exports = function(grunt) {
 				files: [{
 					src: ['**/*.png'],
 					cwd: '<%= SETTINGS.folder.dev %>/img/BSA/',
-					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/img/',
+					dest: '<%= SETTINGS.folder.temp %>/BSA/HTML/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -768,7 +801,7 @@ module.exports = function(grunt) {
 				files: [{
 					src: ['**/*.png'],
 					cwd: '<%= SETTINGS.folder.temp %>/STG/grunticon/png/',
-					dest: '<%= SETTINGS.folder.prod %>/STG/assets/img/',
+					dest: '<%= SETTINGS.folder.temp %>/STG/HTML/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -777,7 +810,7 @@ module.exports = function(grunt) {
 				files: [{
 					src: ['**/*.png'],
 					cwd: '<%= SETTINGS.folder.dev %>/img/STG/',
-					dest: '<%= SETTINGS.folder.prod %>/STG/assets/img/',
+					dest: '<%= SETTINGS.folder.temp %>/STG/HTML/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -787,7 +820,7 @@ module.exports = function(grunt) {
 				files: [{
 					src: ['**/*.png'],
 					cwd: '<%= SETTINGS.folder.temp %>/WBC/grunticon/png/',
-					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/img/',
+					dest: '<%= SETTINGS.folder.temp %>/WBC/HTML/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -796,68 +829,68 @@ module.exports = function(grunt) {
 				files: [{
 					src: ['**/*.png'],
 					cwd: '<%= SETTINGS.folder.dev %>/img/WBC/',
-					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/img/',
+					dest: '<%= SETTINGS.folder.temp %>/WBC/HTML/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
 			},
 
 			//HTML
-			htmlBOM: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.temp %>/BOM/html',
-					src: [
-						'**/*.html',
-						'**/*.md',
-						'**/*.liquid',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/BOM/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
+			// htmlBOM: {
+			// 	files: [{
+			// 		cwd: '<%= SETTINGS.folder.temp %>/BOM/html',
+			// 		src: [
+			// 			'**/*.html',
+			// 			'**/*.md',
+			// 			'**/*.liquid',
+			// 		],
+			// 		dest: '<%= SETTINGS.folder.prod %>/BOM/',
+			// 		filter: 'isFile',
+			// 		expand: true,
+			// 	}],
+			// },
 
-			htmlBSA: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.temp %>/BSA/html',
-					src: [
-						'**/*.html',
-						'**/*.md',
-						'**/*.liquid',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/BSA/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
+			// htmlBSA: {
+			// 	files: [{
+			// 		cwd: '<%= SETTINGS.folder.temp %>/BSA/html',
+			// 		src: [
+			// 			'**/*.html',
+			// 			'**/*.md',
+			// 			'**/*.liquid',
+			// 		],
+			// 		dest: '<%= SETTINGS.folder.prod %>/BSA/',
+			// 		filter: 'isFile',
+			// 		expand: true,
+			// 	}],
+			// },
 
-			htmlSTG: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.temp %>/STG/html',
-					src: [
-						'**/*.html',
-						'**/*.md',
-						'**/*.liquid',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/STG/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
+			// htmlSTG: {
+			// 	files: [{
+			// 		cwd: '<%= SETTINGS.folder.temp %>/STG/html',
+			// 		src: [
+			// 			'**/*.html',
+			// 			'**/*.md',
+			// 			'**/*.liquid',
+			// 		],
+			// 		dest: '<%= SETTINGS.folder.prod %>/STG/',
+			// 		filter: 'isFile',
+			// 		expand: true,
+			// 	}],
+			// },
 
-			htmlWBC: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.temp %>/WBC/html',
-					src: [
-						'**/*.html',
-						'**/*.md',
-						'**/*.liquid',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/WBC/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
+			// htmlWBC: {
+			// 	files: [{
+			// 		cwd: '<%= SETTINGS.folder.temp %>/WBC/html',
+			// 		src: [
+			// 			'**/*.html',
+			// 			'**/*.md',
+			// 			'**/*.liquid',
+			// 		],
+			// 		dest: '<%= SETTINGS.folder.prod %>/WBC/',
+			// 		filter: 'isFile',
+			// 		expand: true,
+			// 	}],
+			// },
 
 			//fonts
 			allFontBOM: {
@@ -870,7 +903,7 @@ module.exports = function(grunt) {
 						'**/*.woff',
 						'**/*.woff2',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/font/',
+					dest: '<%= SETTINGS.folder.temp %>/BOM/HTML/assets/font/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -885,7 +918,7 @@ module.exports = function(grunt) {
 						'**/*.woff',
 						'**/*.woff2',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/font/',
+					dest: '<%= SETTINGS.folder.temp %>/BOM/HTML/assets/font/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -901,7 +934,7 @@ module.exports = function(grunt) {
 						'**/*.woff',
 						'**/*.woff2',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/font/',
+					dest: '<%= SETTINGS.folder.temp %>/BSA/HTML/assets/font/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -916,7 +949,7 @@ module.exports = function(grunt) {
 						'**/*.woff',
 						'**/*.woff2',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/font/',
+					dest: '<%= SETTINGS.folder.temp %>/BSA/HTML/assets/font/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -932,7 +965,7 @@ module.exports = function(grunt) {
 						'**/*.woff',
 						'**/*.woff2',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/STG/assets/font/',
+					dest: '<%= SETTINGS.folder.temp %>/STG/HTML/assets/font/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -947,7 +980,7 @@ module.exports = function(grunt) {
 						'**/*.woff',
 						'**/*.woff2',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/STG/assets/font/',
+					dest: '<%= SETTINGS.folder.temp %>/STG/HTML/assets/font/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -963,7 +996,7 @@ module.exports = function(grunt) {
 						'**/*.woff',
 						'**/*.woff2',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/font/',
+					dest: '<%= SETTINGS.folder.temp %>/WBC/HTML/assets/font/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -978,7 +1011,7 @@ module.exports = function(grunt) {
 						'**/*.woff',
 						'**/*.woff2',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/font/',
+					dest: '<%= SETTINGS.folder.temp %>/WBC/HTML/assets/font/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -993,7 +1026,7 @@ module.exports = function(grunt) {
 						'**/*.jpg',
 						'**/*.gif',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/img/',
+					dest: '<%= SETTINGS.folder.temp %>/BOM/HTML/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -1007,7 +1040,7 @@ module.exports = function(grunt) {
 						'**/*.jpg',
 						'**/*.gif',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/img/',
+					dest: '<%= SETTINGS.folder.temp %>/BSA/HTML/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -1021,7 +1054,7 @@ module.exports = function(grunt) {
 						'**/*.jpg',
 						'**/*.gif',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/STG/assets/img/',
+					dest: '<%= SETTINGS.folder.temp %>/STG/HTML/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -1035,7 +1068,7 @@ module.exports = function(grunt) {
 						'**/*.jpg',
 						'**/*.gif',
 					],
-					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/img/',
+					dest: '<%= SETTINGS.folder.temp %>/WBC/HTML/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -1046,7 +1079,7 @@ module.exports = function(grunt) {
 				files: [{
 					cwd: '<%= SETTINGS.folder.favicons %>/all',
 					src: ['*'],
-					dest: '<%= SETTINGS.folder.prod %>/BOM/',
+					dest: '<%= SETTINGS.folder.temp %>/BOM/HTML/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -1055,7 +1088,7 @@ module.exports = function(grunt) {
 				files: [{
 					cwd: '<%= SETTINGS.folder.favicons %>/BOM',
 					src: ['*'],
-					dest: '<%= SETTINGS.folder.prod %>/BOM/',
+					dest: '<%= SETTINGS.folder.temp %>/BOM/HTML/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -1065,7 +1098,7 @@ module.exports = function(grunt) {
 				files: [{
 					cwd: '<%= SETTINGS.folder.favicons %>/all',
 					src: ['*'],
-					dest: '<%= SETTINGS.folder.prod %>/BSA/',
+					dest: '<%= SETTINGS.folder.temp %>/BSA/HTML/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -1074,7 +1107,7 @@ module.exports = function(grunt) {
 				files: [{
 					cwd: '<%= SETTINGS.folder.favicons %>/BSA',
 					src: ['*'],
-					dest: '<%= SETTINGS.folder.prod %>/BSA/',
+					dest: '<%= SETTINGS.folder.temp %>/BSA/HTML/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -1084,7 +1117,7 @@ module.exports = function(grunt) {
 				files: [{
 					cwd: '<%= SETTINGS.folder.favicons %>/all',
 					src: ['*'],
-					dest: '<%= SETTINGS.folder.prod %>/STG/',
+					dest: '<%= SETTINGS.folder.temp %>/STG/HTML/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -1093,7 +1126,7 @@ module.exports = function(grunt) {
 				files: [{
 					cwd: '<%= SETTINGS.folder.favicons %>/STG',
 					src: ['*'],
-					dest: '<%= SETTINGS.folder.prod %>/STG/',
+					dest: '<%= SETTINGS.folder.temp %>/STG/HTML/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -1103,7 +1136,7 @@ module.exports = function(grunt) {
 				files: [{
 					cwd: '<%= SETTINGS.folder.favicons %>/all',
 					src: ['*'],
-					dest: '<%= SETTINGS.folder.prod %>/WBC/',
+					dest: '<%= SETTINGS.folder.temp %>/WBC/HTML/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -1112,7 +1145,7 @@ module.exports = function(grunt) {
 				files: [{
 					cwd: '<%= SETTINGS.folder.favicons %>/WBC',
 					src: ['*'],
-					dest: '<%= SETTINGS.folder.prod %>/WBC/',
+					dest: '<%= SETTINGS.folder.temp %>/WBC/HTML/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -1162,9 +1195,11 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.js %>/**/*.js',
 				],
 				tasks: [
-					'_replaceDev',
-					'_js',
-					'clean:temp',
+					'_buildDev',
+					// '_replaceDev',
+					// '_js',
+					// '_html',
+					// 'clean:temp',
 					'wakeup',
 				],
 			},
@@ -1174,9 +1209,11 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.less %>/**/*.less',
 				],
 				tasks: [
-					'_replaceDev',
-					'_less',
-					'clean:temp',
+					'_buildDev',
+					// '_replaceDev',
+					// '_less',
+					// '_html',
+					// 'clean:temp',
 					'wakeup',
 				],
 			},
@@ -1186,9 +1223,11 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.svg %>/**/*.svg',
 				],
 				tasks: [
-					'_replaceDev',
-					'_svg',
-					'clean:temp',
+					'_buildDev',
+					// '_replaceDev',
+					// '_svg',
+					// '_html',
+					// 'clean:temp',
 					'wakeup',
 				],
 			},
@@ -1196,11 +1235,14 @@ module.exports = function(grunt) {
 			html: {
 				files: [
 					'<%= SETTINGS.folder.html %>/**/*.html',
+					'<%= SETTINGS.folder.html %>/**/*.liquid',
+					'<%= SETTINGS.folder.html %>/**/*.md',
 				],
 				tasks: [
-					'_replaceDev',
-					'_html',
-					'clean:temp',
+					'_buildDev',
+					// '_replaceDev',
+					// '_html',
+					// 'clean:temp',
 					'wakeup',
 				],
 			},
@@ -1210,9 +1252,10 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.favicons %>/**/*',
 				],
 				tasks: [
-					'_replaceDev',
-					'_favicons',
-					'clean:temp',
+					'_buildDev',
+					// '_replaceDev',
+					// '_favicons',
+					// 'clean:temp',
 					'wakeup',
 				],
 			},
@@ -1298,10 +1341,10 @@ module.exports = function(grunt) {
 	]);
 
 	grunt.registerTask('_html', [
-		'includereplace:BOM',
-		'includereplace:BSA',
-		'includereplace:STG',
-		'includereplace:WBC',
+		// 'jekyll:BOM',
+		// 'jekyll:BSA',
+		// 'jekyll:STG',
+		'jekyll:WBC',
 	]);
 
 	grunt.registerTask('_fonts', [
@@ -1342,10 +1385,10 @@ module.exports = function(grunt) {
 		'_less',
 		'_svg',
 		'_js',
-		'_html',
 		'_fonts',
 		'_img',
 		'_favicons',
+		'_html',
 
 		'clean:temp',
 	]);
@@ -1358,10 +1401,10 @@ module.exports = function(grunt) {
 		'_less',
 		'_svg',
 		'_js',
-		'_html',
 		'_fonts',
 		'_img',
 		'_favicons',
+		'_html',
 
 		'clean:temp',
 	]);

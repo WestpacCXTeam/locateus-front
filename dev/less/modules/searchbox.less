@@ -1,6 +1,8 @@
 /* searchbox stylings */
 
 .searchbox {
+	overflow: hidden;
+
 	@media (min-width: @screen-sm) {
 		&.well.well-responsive {
 			padding-top: 60px;
@@ -38,13 +40,11 @@
 		}
 	}
 
-	@media (min-width: @screen-sm) {
-		.searchbox-languages {
-			width: 80%;
+	.searchbox-languages {
+		max-width: 80%;
 
-			.input-field-select {
-				width: 100%;
-			}
+		.input-field-select {
+			width: 100%;
 		}
 	}
 

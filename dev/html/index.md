@@ -34,10 +34,12 @@ layout: default
 				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
 			</li>
 			<li>
-				Landing page with search result for Coin Deposit Machines
+				<a href="landing-result-depositmachines-options.html">Landing page with search result for Coin Deposit Machines</a>
+				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
 			</li>
 			<li>
-				Landing page with search result for Experts
+				<a href="landing-result-experts-options.html">Landing page with search result for Experts</a>
+				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
 			</li>
 		</ul>
 	</li>

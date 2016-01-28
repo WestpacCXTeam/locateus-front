@@ -1,18 +1,8 @@
 <div class="row searchresult">
 	<div class="col-sm-9">
 		<p class="searchresult-filtertext">
-			Results for <strong>Branches</strong> in or near <strong>Liverpool</strong>
+			Results for <strong>Cash Exchange Machines</strong> in or near <strong>Liverpool</strong>
 		</p>
-
-		<span class="sr-only">This search uses the following filter:</span>
-		<ul class="searchresult-filters lists-unstyled clearfix">
-			<li class="searchresult-filters-item">
-				{% include module/pill.liquid  label = "Open Saturday" %}
-			</li>
-			<li class="searchresult-filters-item">
-				{% include module/pill.liquid  label = "ATM in branch" %}
-			</li>
-		</ul>
 	</div>
 
 	<div class="col-sm-3 text-right">
@@ -27,19 +17,19 @@
 	<div class="col-sm-12">
 		<ol class="result lists-unstyled">
 			<li class="result-item">
-				{% include module/listing-branch-atm.liquid %}
+				{% include cashmachines/listing-warning.liquid %}
 			</li>
 			<li class="result-item">
-				{% include module/listing-branch-atm-warning.liquid %}
+				{% include cashmachines/listing.liquid %}
 			</li>
 			<li class="result-item">
-				{% include module/listing-branch-atm.liquid %}
+				{% include cashmachines/listing-warning.liquid %}
 			</li>
 			<li class="result-item">
-				{% include module/listing-branch-atm.liquid %}
+				{% include cashmachines/listing-warning.liquid %}
 			</li>
 			<li class="result-item">
-				{% include module/listing-branch-atm.liquid %}
+				{% include cashmachines/listing-warning.liquid %}
 			</li>
 		</ol>
 	</div>

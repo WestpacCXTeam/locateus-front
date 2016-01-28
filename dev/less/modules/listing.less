@@ -2,15 +2,9 @@
 
 .listing {
 	.listing-row {
-		margin-top: 12px;
-		padding-top: 12px;
-		padding-bottom: 30px;
-		margin-bottom: 30px;
+		padding-bottom: 12px;
+		margin-bottom: 12px;
 		border-bottom: 1px solid @color-Border;
-
-		&:first-child {
-			border-top: 1px solid @color-Border;
-		}
 	}
 
 	.listing-detail {
@@ -29,8 +23,56 @@
 	}
 
 	.listing-header {
+		overflow: hidden;
+		min-width: 260px;
+
 		@media (min-width: @screen-sm) {
 			float: left;
+		}
+
+		.listing-header-icon {
+			float: right;
+
+			&.logo-bom-phone {
+				width: 33px;
+				height: 42px;
+				margin-top: -12px;
+
+				@media (min-width: @screen-sm) {
+					float: left;
+					margin-top: 0;
+				}
+			}
+
+			&.logo-bsa-phone {
+				width: 78px;
+				height: 42px;
+				margin-top: -11px;
+
+				@media (min-width: @screen-sm) {
+					float: left;
+				}
+			}
+
+			&.logo-stg-phone {
+				width: 60px;
+				height: 42px;
+				margin-top: -10px;
+
+				@media (min-width: @screen-sm) {
+					float: left;
+				}
+			}
+
+			&.logo-wbc-phone {
+				width: 59px;
+				height: 37px;
+				margin-top: -14px;
+
+				@media (min-width: @screen-sm) {
+					float: left;
+				}
+			}
 		}
 
 		&:hover,
@@ -45,6 +87,7 @@
 		.listing-header-name {
 			display: inline-block;
 			color: @color-A;
+			margin-top: 0;
 		}
 
 		.listing-header-type {
@@ -53,6 +96,7 @@
 			font-family: @fontfamily;
 			font-weight: 300;
 			color: @color-A;
+			margin-top: 0;
 
 			&:before {
 				content: " - ";
@@ -63,6 +107,7 @@
 
 		.listing-header-link {
 			display: none;
+			clear: both;
 		}
 
 		@media (min-width: @screen-sm) {
@@ -83,6 +128,66 @@
 
 			.listing-header-link {
 				display: block;
+			}
+		}
+
+		@media (max-width: (@screen-sm - 1)) {
+			.listing-header-name,
+			.listing-header-type {
+				font-size: 14px;
+			}
+		}
+	}
+
+	.alert {
+		margin-top: 12px;
+		margin-bottom: -13px;
+
+		@media (max-width: (@screen-sm - 1)) {
+			padding: 6px 6px 6px 12px;
+
+			.alert-icon {
+				margin-top: 3px;
+			}
+		}
+
+		&.alert-success {
+			.alert-icon {
+				path {
+					fill: @color-Success;
+				}
+			}
+		}
+
+		&.alert-info {
+			.alert-icon {
+				path {
+					fill: @color-Info;
+				}
+			}
+		}
+
+		&.alert-warning {
+			.alert-icon {
+				path {
+					fill: @color-Warning;
+				}
+			}
+		}
+
+		&.alert-danger {
+			.alert-icon {
+				path {
+					fill: @color-Danger;
+				}
+			}
+		}
+
+		&.alert-system {
+			.alert-icon {
+				path {
+					fill: #000;
+				}
 			}
 		}
 	}

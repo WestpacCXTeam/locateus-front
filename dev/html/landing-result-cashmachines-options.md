@@ -7,13 +7,13 @@ layout: default
 
 		<h1 class="body-font">Find a branch, ATM or expert</h1>
 
-		{% include branch/searchbox.liquid  style = " style='display:none;'" text = "More" class = "" %}
+		{% include cashmachines/searchbox.liquid  style = "" text = "Less" class = " is-open" %}
 
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-md-12">
-		{% include branch/search-result.liquid %}
+		{% include cashmachines/search-result.liquid %}
 	</div>
 </div>

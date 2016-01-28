@@ -7,7 +7,7 @@ layout: default
 
 		<h1 class="body-font">Find a branch, ATM or expert</h1>
 
-		{% include searchbox-branch.liquid  style = "" text = "Less" class = " is-open" %}
+		{% include branch/searchbox.liquid  style = "" text = "Less" class = " is-open" %}
 
 	</div>
 </div>

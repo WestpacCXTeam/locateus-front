@@ -77,7 +77,7 @@
 					<div class="input-field-select-wrapper searchbox-find">
 						<select class="input-field-select" id="find" name="find">
 							<option value="Branches">Branches</option>
-							<option value="ATMs">ATMs</option>
+							<option value="ATMs" selected="">ATMs</option>
 							<option value="Cash Exchange Machines">Cash Exchange Machines</option>
 							<option value="Coin Deposit Machines">Coin Deposit Machines</option>
 							<option value="Experts">Experts</option>
@@ -95,212 +95,27 @@
 
 	<div class="row">
 		<div class="col-sm-7">
-			<div class="row searchbox-line">
-				<div class="col-sm-12 col-sm-offset-4">
-					<label class="checkbox">
-	<input class="checkbox-input" type="checkbox" name="openSaturdays" />
-	<span class="checkbox-text">Open Saturdays</span>
-</label>
-					<a href="#searchbox-options" class="searchbox-optionsbtn link-more">More options</a>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="searchbox-options" class="row" style="display:none;">
-		<div class="col-sm-7">
-			<div class="row">
-				<div class="col-sm-8 col-sm-offset-4">
-					<ul class="searchbox-moreoptions lists-unstyled">
-						<li class="searchbox-line">
-							<label class="checkbox">
-	<input class="checkbox-input" type="checkbox" name="safeDepositBox" />
-	<span class="checkbox-text">Safe deposit box</span>
-</label>
-							<div class="popover-wrapper js-popover-wrapper">
-	<button type="button" class="btn btn-link popover popover-dismissible js-popover">
-		<span class="icon icon-size-sm icon-help"></span>
-	</button>
-
-	<div class="js-popoverbody popover-popup" aria-hidden="true" tabindex="-1" aria-label="Use the ESC key to close">
-		<p class="popover-popup-title">
-			Safe deposit box
-		</p>
-		<p class="popover-popup-body">
-			More information about this item...
-		</p>
-	</div>
-</div>
-						</li>
-						<li class="searchbox-line">
-							<label class="checkbox">
-	<input class="checkbox-input" type="checkbox" name="disabledAccess" />
-	<span class="checkbox-text">Disabled access</span>
-</label>
-							<div class="popover-wrapper js-popover-wrapper">
-	<button type="button" class="btn btn-link popover popover-dismissible js-popover">
-		<span class="icon icon-size-sm icon-help"></span>
-	</button>
-
-	<div class="js-popoverbody popover-popup" aria-hidden="true" tabindex="-1" aria-label="Use the ESC key to close">
-		<p class="popover-popup-title">
-			Disabled access
-		</p>
-		<p class="popover-popup-body">
-			More information about this item...
-		</p>
-	</div>
-</div>
-						</li>
-						<li class="searchbox-line">
-							<label class="checkbox">
-	<input class="checkbox-input" type="checkbox" name="foreignCurrency" />
-	<span class="checkbox-text">Foreign currency</span>
-</label>
-						</li>
-						<li class="searchbox-line">
-							<label class="checkbox">
-	<input class="checkbox-input" type="checkbox" name="internetBankingKiosk" />
-	<span class="checkbox-text">Internet banking kiosk</span>
-</label>
-						</li>
-						<li class="searchbox-line">
-							<label class="checkbox">
-	<input class="checkbox-input" type="checkbox" name="nightSafe" />
-	<span class="checkbox-text">Night safe</span>
-</label>
-							<div class="popover-wrapper js-popover-wrapper">
-	<button type="button" class="btn btn-link popover popover-dismissible js-popover">
-		<span class="icon icon-size-sm icon-help"></span>
-	</button>
-
-	<div class="js-popoverbody popover-popup" aria-hidden="true" tabindex="-1" aria-label="Use the ESC key to close">
-		<p class="popover-popup-title">
-			Night safe
-		</p>
-		<p class="popover-popup-body">
-			More information about this item...
-		</p>
-	</div>
-</div>
-						</li>
-						<li class="searchbox-line">
-							<label class="checkbox">
-	<input class="checkbox-input" type="checkbox" name="openLatePensionThursdays" />
-	<span class="checkbox-text">Open late pension Thursdays</span>
-</label>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-5">
-			<ul class="searchbox-moreoptions lists-unstyled">
-				<li class="searchbox-line">
-					Financial experts in branch
-				</li>
-				<li class="searchbox-line">
-					<label class="checkbox">
-	<input class="checkbox-input" type="checkbox" name="homeFinanceManager" />
-	<span class="checkbox-text">Home finance manager</span>
-</label>
-				</li>
-				<li class="searchbox-line">
-					<label class="checkbox">
-	<input class="checkbox-input" type="checkbox" name="agribusinessBanker" />
-	<span class="checkbox-text">Agribusiness banker</span>
-</label>
-				</li>
-				<li class="searchbox-line">
-					<label class="checkbox">
-	<input class="checkbox-input" type="checkbox" name="financialPlanner" />
-	<span class="checkbox-text">Financial planner</span>
-</label>
-				</li>
-				<li class="searchbox-line">
-					<label class="checkbox">
-	<input class="checkbox-input" type="checkbox" name="businessBanker" />
-	<span class="checkbox-text">Business banker</span>
-</label>
-				</li>
-				<li class="searchbox-line">
-					<label class="checkbox">
-	<input class="checkbox-input" type="checkbox" name="migrationServicesExpert" />
-	<span class="checkbox-text">Migration services expert</span>
-</label>
-				</li>
-				<li class="searchbox-line">
-					<div class="input-field-select-wrapper searchbox-languages">
-						<select class="input-field-select" id="language" name="language">
-							<option value="Language spoken in branch">Language spoken in branch</option>
-							<option value="Afrikaans">Afrikaans</option>
-							<option value="Arabic">Arabic</option>
-							<option value="Bahasa Indonesia">Bahasa Indonesia</option>
-							<option value="Bahasa Malaysia">Bahasa Malaysia</option>
-							<option value="Bengali">Bengali</option>
-							<option value="Cantonese">Cantonese</option>
-							<option value="Afrikaans">Afrikaans</option>
-							<option value="Arabic">Arabic</option>
-							<option value="Bahasa Indonesia">Bahasa Indonesia</option>
-							<option value="Bahasa Malaysia">Bahasa Malaysia</option>
-							<option value="Bengali">Bengali</option>
-							<option value="Cantonese">Cantonese</option>
-							<option value="Chinese">Chinese</option>
-							<option value="Croation">Croation</option>
-							<option value="German">German</option>
-							<option value="Greek">Greek</option>
-							<option value="Gujarati">Gujarati</option>
-							<option value="Hindi">Hindi</option>
-							<option value="Hungarian">Hungarian</option>
-							<option value="Italian">Italian</option>
-							<option value="Japanese">Japanese</option>
-							<option value="Korean">Korean</option>
-							<option value="Lebanese">Lebanese</option>
-							<option value="Macedonain">Macedonain</option>
-							<option value="Mandarin">Mandarin</option>
-							<option value="Persian">Persian</option>
-							<option value="Polish">Polish</option>
-							<option value="Portugese">Portugese</option>
-							<option value="Punjabi">Punjabi</option>
-							<option value="Russian">Russian</option>
-							<option value="Sinhala">Sinhala</option>
-							<option value="Spanish">Spanish</option>
-							<option value="Tagalog">Tagalog</option>
-							<option value="Taiwanese">Taiwanese</option>
-							<option value="Tamil">Tamil</option>
-							<option value="Telugu">Telugu</option>
-							<option value="Thai">Thai</option>
-							<option value="Turkish">Turkish</option>
-							<option value="Urdu">Urdu</option>
-							<option value="Vietnamese">Vietnamese</option>
-						</select>
-					</div>
-					<div class="popover-wrapper js-popover-wrapper">
-	<button type="button" class="btn btn-link popover popover-dismissible js-popover">
-		<span class="icon icon-size-sm icon-help"></span>
-	</button>
-
-	<div class="js-popoverbody popover-popup" aria-hidden="true" tabindex="-1" aria-label="Use the ESC key to close">
-		<p class="popover-popup-title">
-			Language spoken in branch
-		</p>
-		<p class="popover-popup-body">
-			More information about this item...
-		</p>
-	</div>
-</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-7">
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-4">
 					<div class="row">
 						<div class="col-sm-8">
 							<button class="btn btn-primary btn-block" type="submit">Search</button>
 						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="well-alert">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="alert alert-info" role="alert">
+					<span class="alert-icon icon icon-size-md icon-dollar" data-grunticon-embed=""></span>
+
+					<div class="alert-body">
+						<strong>Cash Exchange Machines</strong> accept notes of any denomination in exchange for orders of rolled coin, small notes (i.e. $5, $10) and
+						loose $1 coins. For the use of <strong>Westpac Bank customers</strong>.
 					</div>
 				</div>
 			</div>
@@ -316,28 +131,8 @@
 		<div class="row searchresult">
 	<div class="col-sm-9">
 		<p class="searchresult-filtertext">
-			Results for <strong>Branches</strong> in or near <strong>Liverpool</strong>
+			Results for <strong>Cash Exchange Machines</strong> in or near <strong>Liverpool</strong>
 		</p>
-
-		<span class="sr-only">This search uses the following filter:</span>
-		<ul class="searchresult-filters lists-unstyled clearfix">
-			<li class="searchresult-filters-item">
-				<span class="pill">
-	<button class="pill-button btn btn-link">
-		<span class="svg-cross" data-grunticon-embed=""></span>
-	</button>
-	Open Saturday
-</span>
-			</li>
-			<li class="searchresult-filters-item">
-				<span class="pill">
-	<button class="pill-button btn btn-link">
-		<span class="svg-cross" data-grunticon-embed=""></span>
-	</button>
-	ATM in branch
-</span>
-			</li>
-		</ul>
 	</div>
 
 	<div class="col-sm-3 text-right">
@@ -356,9 +151,10 @@
 	<div class="col-sm-12" itemscope="" itemtype="http://schema.org/Corporation">
 		<div class="listing-row">
 			<a class="listing-header" itemprop="url" href="#url">
-				<h2 class="body-font listing-header-name" itemprop="name">Liverpool</h2>
-				<p class="listing-header-type" itemprop="description">Branch/ATM</p>
-				<span class="listing-header-link">See more branch details</span>
+				<h2 class="body-font listing-header-name" itemprop="name">Cabramatta</h2>
+				<span class="listing-header-icon logo logo-bom-phone"></span>
+				<p class="listing-header-type" itemprop="description">Cash Exchange Machine</p>
+				<span class="listing-header-link">See more ATM details</span>
 			</a>
 
 			
@@ -410,88 +206,41 @@
 						<strong class="hidden-xs">Address</strong>
 						<p>
 							<span itemprop="streetAddress">
-								Shop 1021 - 1022<br />
-								Westfield Shopping Town, Macquarie Street
+								28 John Street
 							</span><br />
-							<span itemprop="addressLocality">Liverpool</span>,
+							<span itemprop="addressLocality">Cabramatta</span>,
 							<span itemprop="addressRegion">NSW</span>
-							<span itemprop="postalCode">2170</span><br />
+							<span itemprop="postalCode">2166</span><br />
 							<span class="sr-only" itemprop="addressCountry">Australia</span>
-							<span>BSB <strong>032 016</strong></span>
+							<span>ID: ATM12718</span>
 						</p>
 					</div>
-
-					<p>
-						Call: <a href="tel:0292636666">02 9263 6666</a>
-					</p>
 				</div>
 
 				<div class="col-sm-4">
-					<strong class="hidden-xs">Opening hours</strong>
-					<dl class="hours hidden-xs">
-						<dt>Mon</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Tue</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Wed</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Thur</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Fri</dt>
-						<dd><strong>9.30am - 5pm</strong></dd>
-
-						<dt>Sat</dt>
-						<dd><strong>9.30am - 3pm</strong></dd>
-					</dl>
-
+					<strong class="hidden-xs">Operating hours</strong>
 					<p class="text-info">
-						Open until 4PM today
+						24 hours, 7 days
 					</p>
 
-				</div>
-
-				<div class="col-sm-4">
-					<strong class="hidden-xs">At this branch</strong>
-					<ul class="lists lists-neutral">
-						<li>
-							Open Saturday
-						</li>
-						<li class="hidden-xs">
-							Cash exchange machine
-						</li>
-						<li class="hidden-xs">
-							Coin deposit machine
-						</li>
-						<li class="hidden-xs">
-							Internet banking kiosk
-						</li>
-						<li class="hidden-xs">
-							Night safe
-						</li>
-						<li class="hidden-xs">
-							Safe deposit box
-						</li>
-						<li class="hidden-xs">
-							Business banker
-						</li>
-						<li class="hidden-xs">
-							Financial planner
-						</li>
-						<li class="hidden-xs">
-							Home lender
-						</li>
-						<li class="hidden-xs">
-							Migration services expert
-						</li>
-					</ul>
 				</div>
 			</div>
-		</div>
 
+			<div class="row">
+				<div class="col-sm-12">
+
+					<div class="alert alert-info" role="alert">
+						<span class="alert-icon icon icon-size-md icon-wheelchair" data-grunticon-embed=""></span>
+
+						<div class="alert-body">
+							This ATM has been optimised for disability access. It adheres to recommendations set by the Disability Discrimination Act (DDA)
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
 	</div>
 </div>
 			</li>
@@ -500,9 +249,10 @@
 	<div class="col-sm-12" itemscope="" itemtype="http://schema.org/Corporation">
 		<div class="listing-row">
 			<a class="listing-header" itemprop="url" href="#url">
-				<h2 class="body-font listing-header-name" itemprop="name">Liverpool</h2>
-				<p class="listing-header-type" itemprop="description">Branch/ATM</p>
-				<span class="listing-header-link">See more branch details</span>
+				<h2 class="body-font listing-header-name" itemprop="name">Bankstown Centro</h2>
+				<span class="listing-header-icon logo logo-bsa-phone"></span>
+				<p class="listing-header-type" itemprop="description">Cash Exchange Machine</p>
+				<span class="listing-header-link">See more ATM details</span>
 			</a>
 
 			
@@ -554,97 +304,22 @@
 						<strong class="hidden-xs">Address</strong>
 						<p>
 							<span itemprop="streetAddress">
-								Shop 1021 - 1022<br />
-								Westfield Shopping Town, Macquarie Street
+								28 John Street
 							</span><br />
-							<span itemprop="addressLocality">Liverpool</span>,
+							<span itemprop="addressLocality">Cabramatta</span>,
 							<span itemprop="addressRegion">NSW</span>
-							<span itemprop="postalCode">2170</span><br />
+							<span itemprop="postalCode">2166</span><br />
 							<span class="sr-only" itemprop="addressCountry">Australia</span>
-							<span>BSB <strong>032 016</strong></span>
+							<span>ID: ATM12718</span>
 						</p>
 					</div>
-
-					<p>
-						Call: <a href="tel:0292636666">02 9263 6666</a>
-					</p>
 				</div>
 
 				<div class="col-sm-4">
-					<strong class="hidden-xs">Opening hours</strong>
-					<dl class="hours hidden-xs">
-						<dt>Mon</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Tue</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Wed</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Thur</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Fri</dt>
-						<dd><strong>9.30am - 5pm</strong></dd>
-
-						<dt>Sat</dt>
-						<dd><strong>9.30am - 3pm</strong></dd>
-					</dl>
-
+					<strong class="hidden-xs">Operating hours</strong>
 					<p class="text-info">
-						Open until 4PM today
+						24 hours, 7 days
 					</p>
-
-				</div>
-
-				<div class="col-sm-4">
-					<strong class="hidden-xs">At this branch</strong>
-					<ul class="lists lists-neutral">
-						<li>
-							Open Saturday
-						</li>
-						<li class="hidden-xs">
-							Cash exchange machine
-						</li>
-						<li class="hidden-xs">
-							Coin deposit machine
-						</li>
-						<li class="hidden-xs">
-							Internet banking kiosk
-						</li>
-						<li class="hidden-xs">
-							Night safe
-						</li>
-						<li class="hidden-xs">
-							Safe deposit box
-						</li>
-						<li class="hidden-xs">
-							Business banker
-						</li>
-						<li class="hidden-xs">
-							Financial planner
-						</li>
-						<li class="hidden-xs">
-							Home lender
-						</li>
-						<li class="hidden-xs">
-							Migration services expert
-						</li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-sm-12">
-
-					<div class="alert alert-info" role="alert">
-						<span class="alert-icon icon icon-size-md icon-info" data-grunticon-embed=""></span>
-
-						<div class="alert-body">
-							Moorebank Branch is temporarily closed - This branch is being renovated and will be closed until the 30th December 2014.
-						</div>
-					</div>
 
 				</div>
 			</div>
@@ -658,9 +333,10 @@
 	<div class="col-sm-12" itemscope="" itemtype="http://schema.org/Corporation">
 		<div class="listing-row">
 			<a class="listing-header" itemprop="url" href="#url">
-				<h2 class="body-font listing-header-name" itemprop="name">Liverpool</h2>
-				<p class="listing-header-type" itemprop="description">Branch/ATM</p>
-				<span class="listing-header-link">See more branch details</span>
+				<h2 class="body-font listing-header-name" itemprop="name">Cabramatta</h2>
+				<span class="listing-header-icon logo logo-stg-phone"></span>
+				<p class="listing-header-type" itemprop="description">Cash Exchange Machine</p>
+				<span class="listing-header-link">See more ATM details</span>
 			</a>
 
 			
@@ -712,88 +388,41 @@
 						<strong class="hidden-xs">Address</strong>
 						<p>
 							<span itemprop="streetAddress">
-								Shop 1021 - 1022<br />
-								Westfield Shopping Town, Macquarie Street
+								28 John Street
 							</span><br />
-							<span itemprop="addressLocality">Liverpool</span>,
+							<span itemprop="addressLocality">Cabramatta</span>,
 							<span itemprop="addressRegion">NSW</span>
-							<span itemprop="postalCode">2170</span><br />
+							<span itemprop="postalCode">2166</span><br />
 							<span class="sr-only" itemprop="addressCountry">Australia</span>
-							<span>BSB <strong>032 016</strong></span>
+							<span>ID: ATM12718</span>
 						</p>
 					</div>
-
-					<p>
-						Call: <a href="tel:0292636666">02 9263 6666</a>
-					</p>
 				</div>
 
 				<div class="col-sm-4">
-					<strong class="hidden-xs">Opening hours</strong>
-					<dl class="hours hidden-xs">
-						<dt>Mon</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Tue</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Wed</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Thur</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Fri</dt>
-						<dd><strong>9.30am - 5pm</strong></dd>
-
-						<dt>Sat</dt>
-						<dd><strong>9.30am - 3pm</strong></dd>
-					</dl>
-
+					<strong class="hidden-xs">Operating hours</strong>
 					<p class="text-info">
-						Open until 4PM today
+						24 hours, 7 days
 					</p>
 
-				</div>
-
-				<div class="col-sm-4">
-					<strong class="hidden-xs">At this branch</strong>
-					<ul class="lists lists-neutral">
-						<li>
-							Open Saturday
-						</li>
-						<li class="hidden-xs">
-							Cash exchange machine
-						</li>
-						<li class="hidden-xs">
-							Coin deposit machine
-						</li>
-						<li class="hidden-xs">
-							Internet banking kiosk
-						</li>
-						<li class="hidden-xs">
-							Night safe
-						</li>
-						<li class="hidden-xs">
-							Safe deposit box
-						</li>
-						<li class="hidden-xs">
-							Business banker
-						</li>
-						<li class="hidden-xs">
-							Financial planner
-						</li>
-						<li class="hidden-xs">
-							Home lender
-						</li>
-						<li class="hidden-xs">
-							Migration services expert
-						</li>
-					</ul>
 				</div>
 			</div>
-		</div>
 
+			<div class="row">
+				<div class="col-sm-12">
+
+					<div class="alert alert-info" role="alert">
+						<span class="alert-icon icon icon-size-md icon-wheelchair" data-grunticon-embed=""></span>
+
+						<div class="alert-body">
+							This ATM has been optimised for disability access. It adheres to recommendations set by the Disability Discrimination Act (DDA)
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
 	</div>
 </div>
 			</li>
@@ -802,9 +431,10 @@
 	<div class="col-sm-12" itemscope="" itemtype="http://schema.org/Corporation">
 		<div class="listing-row">
 			<a class="listing-header" itemprop="url" href="#url">
-				<h2 class="body-font listing-header-name" itemprop="name">Liverpool</h2>
-				<p class="listing-header-type" itemprop="description">Branch/ATM</p>
-				<span class="listing-header-link">See more branch details</span>
+				<h2 class="body-font listing-header-name" itemprop="name">Cabramatta</h2>
+				<span class="listing-header-icon logo logo-wbc-phone"></span>
+				<p class="listing-header-type" itemprop="description">Cash Exchange Machine</p>
+				<span class="listing-header-link">See more ATM details</span>
 			</a>
 
 			
@@ -856,88 +486,41 @@
 						<strong class="hidden-xs">Address</strong>
 						<p>
 							<span itemprop="streetAddress">
-								Shop 1021 - 1022<br />
-								Westfield Shopping Town, Macquarie Street
+								28 John Street
 							</span><br />
-							<span itemprop="addressLocality">Liverpool</span>,
+							<span itemprop="addressLocality">Cabramatta</span>,
 							<span itemprop="addressRegion">NSW</span>
-							<span itemprop="postalCode">2170</span><br />
+							<span itemprop="postalCode">2166</span><br />
 							<span class="sr-only" itemprop="addressCountry">Australia</span>
-							<span>BSB <strong>032 016</strong></span>
+							<span>ID: ATM12718</span>
 						</p>
 					</div>
-
-					<p>
-						Call: <a href="tel:0292636666">02 9263 6666</a>
-					</p>
 				</div>
 
 				<div class="col-sm-4">
-					<strong class="hidden-xs">Opening hours</strong>
-					<dl class="hours hidden-xs">
-						<dt>Mon</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Tue</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Wed</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Thur</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Fri</dt>
-						<dd><strong>9.30am - 5pm</strong></dd>
-
-						<dt>Sat</dt>
-						<dd><strong>9.30am - 3pm</strong></dd>
-					</dl>
-
+					<strong class="hidden-xs">Operating hours</strong>
 					<p class="text-info">
-						Open until 4PM today
+						24 hours, 7 days
 					</p>
 
-				</div>
-
-				<div class="col-sm-4">
-					<strong class="hidden-xs">At this branch</strong>
-					<ul class="lists lists-neutral">
-						<li>
-							Open Saturday
-						</li>
-						<li class="hidden-xs">
-							Cash exchange machine
-						</li>
-						<li class="hidden-xs">
-							Coin deposit machine
-						</li>
-						<li class="hidden-xs">
-							Internet banking kiosk
-						</li>
-						<li class="hidden-xs">
-							Night safe
-						</li>
-						<li class="hidden-xs">
-							Safe deposit box
-						</li>
-						<li class="hidden-xs">
-							Business banker
-						</li>
-						<li class="hidden-xs">
-							Financial planner
-						</li>
-						<li class="hidden-xs">
-							Home lender
-						</li>
-						<li class="hidden-xs">
-							Migration services expert
-						</li>
-					</ul>
 				</div>
 			</div>
-		</div>
 
+			<div class="row">
+				<div class="col-sm-12">
+
+					<div class="alert alert-info" role="alert">
+						<span class="alert-icon icon icon-size-md icon-wheelchair" data-grunticon-embed=""></span>
+
+						<div class="alert-body">
+							This ATM has been optimised for disability access. It adheres to recommendations set by the Disability Discrimination Act (DDA)
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
 	</div>
 </div>
 			</li>
@@ -946,9 +529,10 @@
 	<div class="col-sm-12" itemscope="" itemtype="http://schema.org/Corporation">
 		<div class="listing-row">
 			<a class="listing-header" itemprop="url" href="#url">
-				<h2 class="body-font listing-header-name" itemprop="name">Liverpool</h2>
-				<p class="listing-header-type" itemprop="description">Branch/ATM</p>
-				<span class="listing-header-link">See more branch details</span>
+				<h2 class="body-font listing-header-name" itemprop="name">Cabramatta</h2>
+				<span class="listing-header-icon logo logo-bom-phone"></span>
+				<p class="listing-header-type" itemprop="description">Cash Exchange Machine</p>
+				<span class="listing-header-link">See more ATM details</span>
 			</a>
 
 			
@@ -1000,88 +584,41 @@
 						<strong class="hidden-xs">Address</strong>
 						<p>
 							<span itemprop="streetAddress">
-								Shop 1021 - 1022<br />
-								Westfield Shopping Town, Macquarie Street
+								28 John Street
 							</span><br />
-							<span itemprop="addressLocality">Liverpool</span>,
+							<span itemprop="addressLocality">Cabramatta</span>,
 							<span itemprop="addressRegion">NSW</span>
-							<span itemprop="postalCode">2170</span><br />
+							<span itemprop="postalCode">2166</span><br />
 							<span class="sr-only" itemprop="addressCountry">Australia</span>
-							<span>BSB <strong>032 016</strong></span>
+							<span>ID: ATM12718</span>
 						</p>
 					</div>
-
-					<p>
-						Call: <a href="tel:0292636666">02 9263 6666</a>
-					</p>
 				</div>
 
 				<div class="col-sm-4">
-					<strong class="hidden-xs">Opening hours</strong>
-					<dl class="hours hidden-xs">
-						<dt>Mon</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Tue</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Wed</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Thur</dt>
-						<dd><strong>9.30am - 4pm</strong></dd>
-
-						<dt>Fri</dt>
-						<dd><strong>9.30am - 5pm</strong></dd>
-
-						<dt>Sat</dt>
-						<dd><strong>9.30am - 3pm</strong></dd>
-					</dl>
-
+					<strong class="hidden-xs">Operating hours</strong>
 					<p class="text-info">
-						Open until 4PM today
+						24 hours, 7 days
 					</p>
 
-				</div>
-
-				<div class="col-sm-4">
-					<strong class="hidden-xs">At this branch</strong>
-					<ul class="lists lists-neutral">
-						<li>
-							Open Saturday
-						</li>
-						<li class="hidden-xs">
-							Cash exchange machine
-						</li>
-						<li class="hidden-xs">
-							Coin deposit machine
-						</li>
-						<li class="hidden-xs">
-							Internet banking kiosk
-						</li>
-						<li class="hidden-xs">
-							Night safe
-						</li>
-						<li class="hidden-xs">
-							Safe deposit box
-						</li>
-						<li class="hidden-xs">
-							Business banker
-						</li>
-						<li class="hidden-xs">
-							Financial planner
-						</li>
-						<li class="hidden-xs">
-							Home lender
-						</li>
-						<li class="hidden-xs">
-							Migration services expert
-						</li>
-					</ul>
 				</div>
 			</div>
-		</div>
 
+			<div class="row">
+				<div class="col-sm-12">
+
+					<div class="alert alert-info" role="alert">
+						<span class="alert-icon icon icon-size-md icon-wheelchair" data-grunticon-embed=""></span>
+
+						<div class="alert-body">
+							This ATM has been optimised for disability access. It adheres to recommendations set by the Disability Discrimination Act (DDA)
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
 	</div>
 </div>
 			</li>

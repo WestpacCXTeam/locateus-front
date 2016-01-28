@@ -4,7 +4,13 @@
 	.listing-row {
 		margin-top: 12px;
 		padding-top: 12px;
-		border-top: 1px solid @color-Border;
+		padding-bottom: 30px;
+		margin-bottom: 30px;
+		border-bottom: 1px solid @color-Border;
+
+		&:first-child {
+			border-top: 1px solid @color-Border;
+		}
 	}
 
 	.listing-detail {
@@ -13,6 +19,12 @@
 		@media (min-width: @screen-sm) {
 			margin-top: 24px;
 			clear: both;
+		}
+	}
+
+	.listing-address {
+		p {
+			margin-top: 0;
 		}
 	}
 
@@ -32,6 +44,7 @@
 
 		.listing-header-name {
 			display: inline-block;
+			color: @color-A;
 		}
 
 		.listing-header-type {
@@ -39,10 +52,12 @@
 			display: inline-block;
 			font-family: @fontfamily;
 			font-weight: 300;
+			color: @color-A;
 
 			&:before {
 				content: " - ";
 				display: inline-block;
+				margin-right: 3px;
 			}
 		}
 
@@ -53,6 +68,7 @@
 		@media (min-width: @screen-sm) {
 			.listing-header-name {
 				display: block;
+				color: @color-B;
 			}
 
 			.listing-header-type {

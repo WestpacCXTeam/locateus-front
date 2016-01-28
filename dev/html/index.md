@@ -11,9 +11,11 @@ layout: default
 		<ul>
 			<li>
 				<a href="landing-with-location-service.html">Landing page with location services turned on</a>
+				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
 			</li>
 			<li>
 				<a href="landing-with-location-service-options.html">Landing page with location services turned on and options expanded</a>
+				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
 			</li>
 			<li>
 				<a href="landing-without-location-service.html">Landing page with location services turned off</a>

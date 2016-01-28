@@ -14,6 +14,6 @@ layout: default
 
 <div class="row">
 	<div class="col-md-12">
-		{% include search-result-nearest-branch.liquid %}
+		{% include search-result-branch.liquid %}
 	</div>
 </div>

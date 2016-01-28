@@ -1,0 +1,56 @@
+/* GUI fixes */
+
+// https://github.com/WestpacCXTeam/GUI-source/issues/185
+.btn-group-input:checked+.btn .icons-background {
+	fill: #fff;
+}
+
+// https://github.com/WestpacCXTeam/GUI-source/issues/190
+.text-info {
+	.icons-background {
+		fill: @color-Info;
+	}
+}
+
+// https://github.com/WestpacCXTeam/GUI-source/issues/189
+.alert {
+	&.alert-success {
+		.alert-icon {
+			path {
+				fill: @color-Success;
+			}
+		}
+	}
+
+	&.alert-info {
+		.alert-icon {
+			path {
+				fill: @color-Info;
+			}
+		}
+	}
+
+	&.alert-warning {
+		.alert-icon {
+			path {
+				fill: @color-Warning;
+			}
+		}
+	}
+
+	&.alert-danger {
+		.alert-icon {
+			path {
+				fill: @color-Danger;
+			}
+		}
+	}
+
+	&.alert-system {
+		.alert-icon {
+			path {
+				fill: #000;
+			}
+		}
+	}
+}

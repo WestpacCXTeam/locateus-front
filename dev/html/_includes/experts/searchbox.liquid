@@ -22,9 +22,9 @@
 						<select class="input-field-select" id="find" name="find">
 							<option value="Branches">Branches</option>
 							<option value="ATMs">ATMs</option>
-							<option value="Cash Exchange Machines" selected>Cash Exchange Machines</option>
+							<option value="Cash Exchange Machines">Cash Exchange Machines</option>
 							<option value="Coin Deposit Machines">Coin Deposit Machines</option>
-							<option value="Experts">Experts</option>
+							<option value="Experts" selected>Experts</option>
 						</select>
 					</div>
 				</div>
@@ -39,27 +39,34 @@
 
 	<div class="row">
 		<div class="col-sm-7">
-			<div class="row">
-				<div class="col-sm-8 col-sm-offset-4">
-					<div class="row">
-						<div class="col-sm-8">
-							<button class="btn btn-primary btn-block" type="submit">Search</button>
-						</div>
+			<div class="row searchbox-line">
+				<div class="col-sm-4">
+					<label class="searchbox-label" for="talkabout">Talk about</label>
+				</div>
+				<div class="col-sm-8">
+					<div class="input-field-select-wrapper searchbox-find">
+						<select class="input-field-select" id="talkabout" name="talkabout">
+							<option value="Select subject">Select subject</option>
+							<option value="Home loans">Home loans</option>
+							<option value="Business banking">Business banking</option>
+							<option value="Financial planning">Financial planning</option>
+							<option value="Agribusiness">Agribusiness</option>
+							<option value="Migration services">Migration services</option>
+						</select>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="well-alert">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="alert alert-info" role="alert">
-					<span class="alert-icon icon icon-size-md icon-dollar" data-grunticon-embed></span>
-
-					<div class="alert-body">
-						<strong>Cash Exchange Machines</strong> accept notes of any denomination in exchange for orders of rolled coin, small notes (i.e. $5, $10) and
-						loose $1 coins. For the use of <strong>Westpac Bank customers</strong>.
+	<div class="row">
+		<div class="col-sm-7">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-4">
+					<div class="row">
+						<div class="col-sm-8">
+							<button class="btn btn-primary btn-block" type="submit">Search</button>
+						</div>
 					</div>
 				</div>
 			</div>

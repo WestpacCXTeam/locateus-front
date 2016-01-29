@@ -63,3 +63,28 @@
 		font-family: @fontfamily;
 	}
 }
+
+// https://github.com/WestpacCXTeam/GUI-source/issues/192
+.icon {
+	&.icon-size-sm {
+		.ie8 & {
+			zoom: 0.5;
+			width: 32px;
+			height: 32px;
+		}
+	}
+
+	&.icon-size-lg {
+		.ie8 & {
+			zoom: 0.5;
+			width: 128px;
+			height: 128px;
+		}
+	}
+}
+
+.ie8 & {
+	.checkbox {
+		margin-right: 1px;
+	}
+}

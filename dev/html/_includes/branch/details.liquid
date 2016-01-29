@@ -1,0 +1,39 @@
+<div class="details-btn btn-group">
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="details" checked>
+		<span class="btn-group-text btn btn-hero">Branch details</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="details">
+		<span class="btn-group-text btn btn-hero">Map &amp; directions</span>
+	</label>
+</div>
+
+<div class="row details-content">
+	{% include branch/content.liquid  view = "details" %}
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="experts">
+			<h2 class="expert-headline body-font">Experts at this branch</h2>
+
+			<div class="expert">
+				{% include branch/expert.liquid %}
+			</div>
+
+			<div class="expert">
+				{% include branch/expert.liquid %}
+			</div>
+
+			<div class="expert">
+				{% include branch/expert.liquid %}
+			</div>
+
+			<div class="expert">
+				{% include branch/expert.liquid %}
+			</div>
+		</div>
+	</div>
+</div>

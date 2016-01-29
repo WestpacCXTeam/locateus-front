@@ -27,35 +27,43 @@
 		right: 0;
 	}
 
-	@media (max-width: (@screen-sm - 1)) {
-		.details-btn {
-			display: table;
-			position: fixed;
-			top: 0;
+	.details-content {
+		margin-top: 12px;
+	}
 
-			.btn-group-item {
-				display: table-cell;
+	&.is-map {
+		@media (max-width: (@screen-sm - 1)) {
+			.details-btn {
+				display: table;
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
 
-				.btn-group-text {
-					width: 100%;
+				.btn-group-item {
+					display: table-cell;
+
+					.btn-group-text {
+						width: 100%;
+					}
 				}
 			}
-		}
 
-		.details-back,
-		.details-headline,
-		.directionbox {
-			display: none;
-		}
+			.details-back,
+			.details-headline,
+			.directionbox {
+				display: none;
+			}
 
-		.details-map-wrapper {
-			position: fixed;
-			top: 0;
-			bottom: 0;
-			right: 0;
-			left: 0;
-			height: 100%;
-			margin-top: 0;
+			.details-map-wrapper {
+				position: fixed;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				height: 100%;
+				margin-top: 0;
+			}
 		}
 	}
 }

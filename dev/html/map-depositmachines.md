@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="row">
-	<div class="col-md-12 details">
+	<div class="col-md-12 details is-map">
 
 		<a class="details-back link-back" href="/">Back to results</a>
 

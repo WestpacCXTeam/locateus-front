@@ -74,7 +74,8 @@ layout: default
 
 		<ul>
 			<li>
-				Detail view for Branches
+				<a href="details-branch.html">Detail view for Branches</a>
+				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
 			</li>
 			<li>
 				Detail view for ATMs

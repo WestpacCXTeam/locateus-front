@@ -64,7 +64,8 @@ layout: default
 				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
 			</li>
 			<li>
-				Map view for search results
+				<a href="map-search-result.html">Map view for search results</a>
+				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
 			</li>
 		</ul>
 	</li>

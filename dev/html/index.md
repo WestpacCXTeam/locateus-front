@@ -44,6 +44,31 @@ layout: default
 		</ul>
 	</li>
 	<li>
+		<h2>Map view pages</h2>
+
+		<ul>
+			<li>
+				<a href="map-branch.html">Map view for branch</a>
+				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
+			</li>
+			<li>
+				<a href="map-atm.html">Map view for ATM</a>
+				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
+			</li>
+			<li>
+				<a href="map-cashmachines.html">Map view for Cash Exchange Machines</a>
+				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
+			</li>
+			<li>
+				<a href="map-depositmachines.html">Map view for Coin Deposit Machines</a>
+				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
+			</li>
+			<li>
+				Map view for search results
+			</li>
+		</ul>
+	</li>
+	<li>
 		<h2>Detail view pages</h2>
 
 		<ul>
@@ -58,18 +83,6 @@ layout: default
 			</li>
 			<li>
 				Detail view for Coin Deposit Machines
-			</li>
-		</ul>
-	</li>
-	<li>
-		<h2>Map view pages</h2>
-
-		<ul>
-			<li>
-				Map view for search result
-			</li>
-			<li>
-				Map view for detail view
 			</li>
 		</ul>
 	</li>

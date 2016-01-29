@@ -1,0 +1,30 @@
+{% assign count = count | plus: 1 %}
+
+<div class="row">
+	<div class="col-sm-4 expert-image-col">
+		<img class="expert-image" src="https://placehold.it/152x152?text=face">
+	</div>
+
+	<div class="col-sm-4 expert-name-col">
+		<h3 class="expert-name body-font">Michael Tzortzis</h3>
+		<p class="text-muted expert-title">Bank Manager</p>
+		<p class="expert-contact">
+			Direct mobile: <a href="tel:0429567100">0429 567 100</a><br>
+			Email: <a href="mailto:mtzortzis@westpac.com.au">mtzortzis@westpac.com.au</a>
+		</p>
+	</div>
+
+	<div class="col-sm-4 expert-content-col">
+		<p class="expert-content">
+			My team of specialists and personal bankers, and myself, are dedicated to helping with all your banking, business and financial needs.
+		</p>
+		{% if count > 1 %}
+			<p class="text-info">
+				<span class="icon icon-size-sm icon-global" data-grunticon-embed></span>
+				I speak English, Italian
+			</p>
+
+			{% assign count = count | minus: 2 %}
+		{% endif %}
+	</div>
+</div>

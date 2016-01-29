@@ -11,61 +11,7 @@
 			{% include module/directionbox.liquid %}
 
 			<div class="row listing-detail">
-				<div class="col-sm-4">
-					<div class="listing-address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-						<strong class="listing-headline hidden-xs">Address</strong>
-						<p>
-							<span itemprop="streetAddress">
-								ATM101, Retail Level 1, 124 Macquarie St
-							</span><br>
-							<span itemprop="addressLocality">Liverpool</span>,
-							<span itemprop="addressRegion">NSW</span>
-							<span itemprop="postalCode">2170</span><br>
-							<span class="sr-only" itemprop="addressCountry">Australia</span>
-							<span>ATM ID: ATM12718</span>
-						</p>
-					</div>
-				</div>
-
-				<div class="col-sm-4">
-					<strong class="listing-headline hidden-xs">Operating hours</strong>
-					<dl class="hours hidden-xs">
-						<dt>Mon</dt>
-						<dd><strong>7am - 11pm</strong></dd>
-
-						<dt>Tue</dt>
-						<dd><strong>7am - 11pm</strong></dd>
-
-						<dt>Wed</dt>
-						<dd><strong>7am - 11pm</strong></dd>
-
-						<dt>Thur</dt>
-						<dd><strong>7am - 11pm</strong></dd>
-
-						<dt>Fri</dt>
-						<dd><strong>7am - 11pm</strong></dd>
-
-						<dt>Sat</dt>
-						<dd><strong>7am - 11pm</strong></dd>
-					</dl>
-
-					<p class="text-info">
-						Open until 11PM today
-					</p>
-
-				</div>
-
-				<div class="col-sm-4">
-					<strong class="listing-headline hidden-xs">At this branch</strong>
-					<ul class="lists lists-hero">
-						<li>
-							Audio ATM
-						</li>
-						<li>
-							Accepts deposits
-						</li>
-					</ul>
-				</div>
+				{% include atm/content.liquid  view = "result" %}
 			</div>
 
 			<div class="row">

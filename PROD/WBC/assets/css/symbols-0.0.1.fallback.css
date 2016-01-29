@@ -1,7 +1,12 @@
 .link-more:after,
-.svg-arrow { background-image: url('../img/arrow.png'); background-repeat: no-repeat; }
+.svg-arrow-down { background-image: url('../img/arrow-down.png'); background-repeat: no-repeat; }
+
+.link-back:before,
+.svg-arrow-left { background-image: url('../img/arrow-left.png'); background-repeat: no-repeat; }
 
 .svg-cross { background-image: url('../img/cross.png'); background-repeat: no-repeat; }
+
+.svg-list { background-image: url('../img/list.png'); background-repeat: no-repeat; }
 
 
 .checkbox-input:disabled + .checkbox-text:after,

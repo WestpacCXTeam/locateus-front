@@ -1,0 +1,48 @@
+/* expert stylings */
+
+.experts {
+	border-top: 1px solid @color-Border;
+	padding-top: 24px;
+	margin-top: 24px;
+}
+
+.expert {
+	border-bottom: 1px solid @color-Border;
+	padding-bottom: 24px;
+	margin-bottom: 24px;
+}
+
+.expert-headline {
+	margin: 0 0 1em 0;
+}
+
+.expert-name {
+	font-size: 18px;
+	margin: 0;
+}
+
+.expert-title {
+	margin-top: 0;
+}
+
+.expert-image {
+	overflow: hidden;
+	border-radius: 50%;
+	width: 76px;
+	height: auto;
+	margin-right: 12px;
+	border: 1px solid @color-Border;
+	max-width: 100%;
+}
+
+@media (min-width: @screen-sm) {
+	.expert-image-col {
+		float: right;
+	}
+}
+
+@media (max-width: (@screen-sm - 1)) {
+	.expert-image-col {
+		margin-bottom: 12px;
+	}
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg aria-labelledby="title" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+	<title id="title" lang="en">List</title>
+
+	<rect class="icons-background" x="6" y="6" fill="#2d373e" width="26" height="4"/>
+	<rect class="icons-background" y="6" fill="#2d373e" width="4" height="4"/>
+	<rect class="icons-background" x="6" y="14" fill="#2d373e" width="26" height="4"/>
+	<rect class="icons-background" y="14" fill="#2d373e" width="4" height="4"/>
+	<rect class="icons-background" y="22" fill="#2d373e" width="4" height="4"/>
+	<rect class="icons-background" x="6" y="22" fill="#2d373e" width="26" height="4"/>
+</svg>

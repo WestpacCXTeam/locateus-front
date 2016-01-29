@@ -78,13 +78,16 @@ layout: default
 				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
 			</li>
 			<li>
-				Detail view for ATMs
+				<a href="details-atm.html">Detail view for ATMs</a>
+				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
 			</li>
 			<li>
-				Detail view for Cash Exchange Machines
+				<a href="details-cashmachines.html">Detail view for Cash Exchange Machines</a>
+				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
 			</li>
 			<li>
-				Detail view for Coin Deposit Machines
+				<a href="details-depositmachines.html">Detail view for Coin Deposit Machines</a>
+				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
 			</li>
 		</ul>
 	</li>

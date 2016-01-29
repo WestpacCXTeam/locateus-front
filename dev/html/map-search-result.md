@@ -33,7 +33,7 @@ layout: default
 
 			<div class="col-sm-3 text-right">
 				<button type="button" class="searchresult-btn btn btn-hero btn-soft">
-					<span class="btn-icon btn-icon-left " data-grunticon-embed></span>
+					<span class="btn-icon btn-icon-left svg-list" data-grunticon-embed></span>
 					<span class="btn-text">View as list</span>
 				</button>
 			</div>

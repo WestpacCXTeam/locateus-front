@@ -1,0 +1,36 @@
+<div class="details-btn btn-group">
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="details" checked>
+		<span class="btn-group-text btn btn-hero">ATM details</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="details">
+		<span class="btn-group-text btn btn-hero">Map &amp; directions</span>
+	</label>
+</div>
+
+<div class="row">
+	<div class="col-sm-12 details-byline">
+		<span class="details-icon logo {% cycle 'logo-bom-phone', 'logo-bsa-phone', 'logo-stg-phone', 'logo-wbc-phone' %}"></span>
+		<p class="details-type">ATM only</p>
+	</div>
+</div>
+
+<div class="row details-content">
+	{% include atm/content.liquid  view = "details" %}
+</div>
+
+<div class="row details-warning">
+	<div class="col-sm-12">
+
+		<div class="alert alert-info" role="alert">
+			<span class="alert-icon icon icon-size-md icon-wheelchair" data-grunticon-embed></span>
+
+			<div class="alert-body">
+				This ATM has been optimised for disability access. It adheres to recommendations set by the Disability Discrimination Act (DDA)
+			</div>
+		</div>
+
+	</div>
+</div>

@@ -7,9 +7,9 @@ layout: default
 
 		<a class="details-back link-back" href="/">Back to results</a>
 
-		<h1 class="details-headline body-font">Liverpool - Branch/ATM</h1>
+		<h1 class="details-headline body-font">Cabramatta</h1>
 
-		{% include branch/details.liquid %}
+		{% include cashmachines/details.liquid %}
 
 	</div>
 </div>

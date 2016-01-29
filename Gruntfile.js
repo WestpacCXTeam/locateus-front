@@ -594,7 +594,8 @@ module.exports = function(grunt) {
 				enhanceSVG: true,
 				pngpath: '../img',
 				customselectors: {
-					'arrow': ['.link-more:after'],
+					'arrow-down': ['.link-more:after'],
+					'arrow-left': ['.link-back:before'],
 				},
 			},
 

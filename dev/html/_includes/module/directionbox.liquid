@@ -1,5 +1,10 @@
 {% assign id = id | plus: 1 %}
 
+{% assign maptext = 'Map &amp; directions' %}
+{% if include.map == 'true' %}
+	{% assign maptext = 'Get directions' %}
+{% endif %}
+
 <div class="directionbox panel panel-faint">
 	<div class="directionbox-body panel-body text-right">
 		<span class="directionbox-text">
@@ -36,7 +41,7 @@
 	</div>
 	<div class="panel-footer text-right">
 		<a class="directionbox-link" href="#url">
-			Map &amp; directions
+			{{ maptext }}
 		</a>
 	</div>
 </div>

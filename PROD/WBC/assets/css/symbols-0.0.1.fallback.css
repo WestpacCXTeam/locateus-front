@@ -8,6 +8,8 @@
 
 .svg-list { background-image: url('../img/list.png'); background-repeat: no-repeat; }
 
+.svg-logo-bsa { background-image: url('../img/logo-bsa.png'); background-repeat: no-repeat; }
+
 
 .checkbox-input:disabled + .checkbox-text:after,
 .symbol-checkbox-off-disabled { background-image: url('../img/checkbox-off-disabled.png'); background-repeat: no-repeat; }

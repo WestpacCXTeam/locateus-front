@@ -17,8 +17,11 @@
 	.searchresult-filtertext {
 		float: left;
 		margin: 0 6px 0 0;
-		padding-top: 9px;
 		vertical-align: middle;
+
+		@media (min-width: @screen-sm) {
+			padding-top: 9px;
+		}
 
 		.icon {
 			vertical-align: middle;
@@ -27,6 +30,11 @@
 
 	.searchresult-filters {
 		margin-bottom: 12px;
+		clear: both;
+
+		@media (min-width: @screen-sm) {
+			clear: none;
+		}
 
 		li {
 			float: left;

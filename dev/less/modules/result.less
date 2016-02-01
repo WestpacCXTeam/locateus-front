@@ -10,9 +10,14 @@
 
 	.result-item:first-child {
 		.listing-row {
-			margin-top: 10px;
-			padding-top: 24px;
+			margin-top: 6px;
+			padding-top: 12px;
 			border-top: 1px solid @color-Border;
+
+			@media (min-width: @screen-sm) {
+				margin-top: 10px;
+				padding-top: 24px;
+			}
 		}
 	}
 }

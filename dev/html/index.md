@@ -91,4 +91,18 @@ layout: default
 			</li>
 		</ul>
 	</li>
+	<li>
+		<h2>Loading pages</h2>
+
+		<ul>
+			<li>
+				<a href="loading-when-search-hit.html">Loading when the search button is hit</a>
+				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
+			</li>
+			<li>
+				<a href="loading-when-filter-changed.html">Loading when the filters are changed</a>
+				<span class="icon icon-size-sm symbol-ticklist" data-grunticon-embed></span>
+			</li>
+		</ul>
+	</li>
 </ul>

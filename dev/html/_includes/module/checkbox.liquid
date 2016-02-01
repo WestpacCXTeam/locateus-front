@@ -1,4 +1,8 @@
+{% if include.disabled == 'true' %}
+	{% assign disabled = ' disabled' %}
+{% endif %}
+
 <label class="checkbox">
-	<input class="checkbox-input" type="checkbox" name="{{ include.name }}">
+	<input class="checkbox-input" type="checkbox" name="{{ include.name }}"{{ disabled }}>
 	<span class="checkbox-text">{{ include.text }}</span>
 </label>
